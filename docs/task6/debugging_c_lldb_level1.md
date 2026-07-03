@@ -408,3 +408,141 @@ and `finish` (step-out) — how to dive into a function call and climb back out.
 | **continue** | కొనసాగించు — పంక్తి-పంక్తి ఆపడం మాని, పూర్తి వేగంతో ముందుకు నడిపించడం. |
 | **executable** | నిర్వహించదగిన ఫైల్ — నేరుగా నడిపించగల తుది ప్రోగ్రామ్ (ఉదా: `./biggest`). |
 | **predict** | అంచనా వేయడం — చూడక ముందే "ఇలా జరుగుతుంది" అని ఊహించి రాయడం; తర్వాత డీబగ్గర్‌తో సరిచూసుకోవడం. |
+
+---
+
+# Questions from the class (Q & A)
+
+Real questions students asked while doing this task — read all three even if
+you didn't hit them yourself. They are the *same* misunderstanding seen from
+three sides.
+
+## Q1. I removed a semicolon at the end of a C statement. Now I can't debug — I just see an error. Why?
+
+**Short answer:** the debugger does not debug your `.c` file — it debugs the
+**executable**. Removing the semicolon made the compile *fail*, so no
+executable was produced, so there is nothing for LLDB to debug.
+
+Remember what each tool works on:
+
+- `clang` reads your **source code** (`biggest.c`).
+- `lldb` reads your **executable** (`./biggest`).
+
+A missing semicolon is a **syntax error**. The compiler refuses to translate a
+program it cannot fully understand — it prints the error (something like
+`error: expected ';' after expression`) and, crucially, **writes no output
+file**. The debugger is downstream of the compiler; a failed compile means the
+debugger's input was never created:
+
+```
+ THE GATE: only compiled programs can be debugged
+
+ biggest.c ──► clang -g ──✗ error: expected ';'
+                 │
+                 ▼
+          NO executable written
+                 │
+                 ▼
+          nothing for lldb to load  →  cannot debug
+
+
+ biggest.c ──► clang -g ──✓ compiles clean ──► ./biggest ──► lldb ./biggest ✓
+```
+
+**Takeaway to say out loud:** debugging is for programs that *compile but
+behave wrongly*. Compile errors are fixed with the **compiler's** message, in
+the editor — the debugger only enters the story after `clang -g` succeeds.
+
+## Q2. Strange — I also got a compile error, but I *am* able to debug. How?
+
+**Short answer:** you are debugging a **ghost** — the *old* executable from
+your last *successful* compile. The failed compile wrote nothing, but it also
+**deleted nothing**, so the old `./biggest` is still sitting on disk and LLDB
+happily loads it.
+
+Follow the timeline:
+
+```
+ TIME ─────────────────────────────────────────────────────────►
+
+ 10:00   clang -g biggest.c -o biggest        ✓ success
+            └─► writes ./biggest        (a frozen copy of 10:00 code)
+
+ 10:05   you edit biggest.c — remove the semicolon
+
+ 10:06   clang -g biggest.c -o biggest        ✗ error: expected ';'
+            └─► writes NOTHING        (./biggest from 10:00 untouched)
+
+ 10:07   lldb ./biggest                        "works"!
+            └─► but it is stepping through the 10:00 program,
+                NOT the code you are looking at in your editor
+```
+
+This is called a **stale executable**, and it is genuinely dangerous: the
+source file on your screen and the program under the debugger are *two
+different programs*. You will step through lines that "don't match" and see
+values that make no sense — and waste an hour doubting yourself.
+
+Two habits prevent it:
+
+1. **Read the compiler's output every single time.** If you saw `error:`, the
+   executable was NOT rebuilt — do not touch the debugger until it compiles
+   clean.
+2. When in doubt, compare timestamps — the executable must be **newer** than
+   the source:
+   ```
+   ls -l biggest.c biggest
+   ```
+   If `biggest.c` has a later time than `biggest`, the executable is stale.
+   (Paranoid version: `rm biggest` before recompiling — then a failed compile
+   leaves *nothing* to debug, and Q1's clean error protects you.)
+
+**Takeaway to say out loud:** a failed compile does not erase the previous
+executable. LLDB debugs whatever file you hand it — it cannot know your source
+has moved on.
+
+## Q3. What is the `lldb` executable?
+
+**Short answer:** `lldb` is itself an ordinary **program** — an executable
+file installed on your Ubuntu machine (by `sudo apt install lldb`), exactly as
+real as the `./biggest` you built. Its special talent: **its job is to run
+*other* programs in slow motion.**
+
+Prove it is just a file on disk, with the tools you already know:
+
+```
+which lldb          # where does the shell find it?  e.g. /usr/bin/lldb
+file $(which lldb)  # what kind of file is it?       an executable (ELF)
+ls -l $(which lldb) # how big? who owns it?
+```
+
+So when you type `lldb ./biggest` and press Enter, **two programs** come into
+the picture:
+
+```
+   you type: b main, run, next, frame variable ...
+        │
+        ▼
+ ┌───────────────────────┐    controls: start, freeze,
+ │   lldb                │    step one line, read memory
+ │   (the debugger,      │ ─────────────────────────────► ┌──────────────────────┐
+ │    a running process) │                                │   ./biggest          │
+ │                       │ ◄───────────────────────────── │   (YOUR program,     │
+ └───────────────────────┘    reports back: "stopped at   │    a second process) │
+                              line 6", "num1 = 7", ...    └──────────────────────┘
+```
+
+- **lldb is the puppeteer process.** It shows you the `(lldb)` prompt and
+  obeys your commands.
+- **Your program is a separate process** (that is the `Process 4821 stopped`
+  line!). It is started, frozen, and stepped by lldb — with the operating
+  system's permission, since one process controlling another is a privilege
+  the OS must grant.
+- This is why `quit` sometimes asks *"Do you really want to proceed?"* —
+  quitting the puppeteer means abandoning the still-frozen puppet, and lldb
+  checks you meant it.
+
+**Takeaway to say out loud:** there is no magic layer — the debugger is a
+program like any other. `clang` is a program that *translates* programs;
+`lldb` is a program that *runs and controls* programs. You now use programs to
+build and inspect programs — that is the whole craft.
