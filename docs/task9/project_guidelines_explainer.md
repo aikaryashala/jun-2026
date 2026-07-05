@@ -1,23 +1,24 @@
 # Project Guidelines — Build in Public, Ship for Real
 
-Seven rules to follow for **every** project you build. None of them is about
-writing code — they are about making your work *visible, alive, and defensible*.
-The rule for the whole sheet: **a project that only you can see, run, and
-explain… barely exists.**
+Eight rules to follow for **every** project you build. Most of them are not
+about writing code — they are about making your work *visible, alive, and
+defensible*. The rule for the whole sheet: **a project that only you can see,
+run, and explain… barely exists.**
 
-## How the seven fit together (keep this in front of you)
+## How the eight fit together (keep this in front of you)
 
 ```
  write code ──► 1. commit DAILY to GitHub ──► 3. auto-DEPLOY on every push
-                                                      │
-                             2. your .xyz DOMAIN points at the deployment
-                                                      │
-                    5. demo video + 6. implementation video (on YouTube,
-                        embedded in the README) show it working
+      ▲                                               │
+      │                      2. your .xyz DOMAIN points at the deployment
+ 8. opencode                                          │
+ (AI pair-programmer         5. demo video + 6. implementation video (on
+  speeds up the writing)        YouTube, embedded in the README) show it working
                                                       │
                         7. your PROFILE page collects everything
                                                       │
               4. the GenAI mock-interview makes sure you can DEFEND it
+                 (especially the code the AI helped write!)
 ```
 
 Each guideline feeds the next. Skip one and the chain breaks.
@@ -339,6 +340,82 @@ first impression handled.
 
 ---
 
+# Guideline 8 — Develop with `opencode`, an AI coding agent in your terminal
+
+> *Use opencode for development using AI models.*
+
+### Why this is important
+
+- **AI-assisted development is now how software is written.** Professional
+  teams use AI coding agents daily; using one *well* — directing it,
+  reviewing it, catching its mistakes — is a skill employers now expect,
+  separate from coding itself.
+- **opencode lives where you already work: the shell.** It is an open-source
+  coding agent that runs in the terminal — the same environment as `clang`,
+  `git`, and your scripts — and it can read your project, edit files, and run
+  commands *with your approval*.
+- **It is not locked to one AI vendor.** opencode connects to many model
+  providers (Anthropic's Claude, OpenAI, Google Gemini, GitHub Copilot,
+  OpenRouter, and more) — you learn the *workflow*, and can switch models as
+  prices and quality change.
+- **Used right, it is a teacher too**: it can explain unfamiliar code, walk
+  through errors, and show you approaches you haven't met yet — an always-on
+  senior to ask.
+- The danger is real and has a rule already: code you accept but cannot
+  explain fails **Guideline 4**. The AI writes *with* you, never *instead of*
+  you.
+
+### The best way to do it
+
+1. **Install it** (it's a command-line tool like any other — afterwards, try
+   `which opencode`, Task-5 style):
+   ```
+   curl -fsSL https://opencode.ai/install | bash
+   ```
+   (or `npm install -g opencode-ai`). Verify: `opencode --version`.
+2. **Connect an AI model** — run:
+   ```
+   opencode auth login
+   ```
+   and pick a provider you have access to (Claude, OpenAI, Gemini, GitHub
+   Copilot, OpenRouter…). The API key you paste is a **secret** — Guideline 1's
+   rule applies: it lives in opencode's config, never in the repo.
+3. **Start it inside your project**, and let it learn the project first:
+   ```
+   cd your-project
+   opencode
+   ```
+   In the opencode screen, run `/init` — it scans the repo and writes an
+   `AGENTS.md` file describing the project (build commands, structure,
+   conventions) so every future session starts informed. **Commit that file.**
+4. **Plan first, edit second.** opencode has two modes — switch with **Tab**:
+   - **Plan mode**: discuss the approach; it reads code but *changes nothing*.
+   - **Build mode**: it edits files and runs commands.
+   Ask in plan mode ("how should we add login to this app?"), agree on the
+   plan, *then* let build mode do it.
+5. **Small asks, always reviewed.** One feature or one fix per request — not
+   "build my whole project." Read **every diff** it proposes before
+   accepting: you are the author; the AI is the fast typist.
+6. **Commit before and after** (Guideline 1 pays off again): commit *before*
+   letting the agent attempt anything big — git is your undo button if it
+   goes wrong — and commit *after* each accepted change with an honest
+   message.
+7. **Test after every change**: run your test script (Task-7's
+   `./test_sum.sh` habit) or the app itself. AI code that was never run is
+   just a guess.
+8. **Use it to learn, not only to produce**: "explain this file to me line by
+   line", "why did you choose a loop here instead of recursion?", "what
+   breaks if the input is empty?" Then bring that understanding to the
+   Guideline 4 interview — where "the AI wrote it" is never an accepted
+   answer.
+
+**Takeaway to say out loud:** opencode puts an AI pair-programmer inside your
+terminal — plan first, ask small, review every diff, commit around it, test
+after it. The AI multiplies your speed; Guidelines 1–7 make sure it never
+replaces your understanding.
+
+---
+
 ## One-page checklist (pin this above your desk)
 
 | # | Guideline | The habit |
@@ -350,9 +427,11 @@ first impression handled.
 | 5 | Demo video | 2–3 min, scripted, real domain in URL bar; YouTube; thumbnail-link at top of README |
 | 6 | Implementation video | 5–10 min, architecture-first, each member narrates their part; second README section |
 | 7 | Profile page | `yourname/yourname` README: live link + both videos + code, repo pinned |
+| 8 | Develop with opencode | `opencode` in the project folder; `/init` once; plan → build; small asks; review every diff; commit before & after; test after |
 
-**The chain to remember:** commit → deploy → domain → videos → profile — and
-the AI interview to make sure you can defend every link of it.
+**The chain to remember:** commit → deploy → domain → videos → profile — with
+opencode speeding up the building, and the AI interview making sure you can
+defend every link of it.
 
 ---
 
@@ -390,3 +469,10 @@ the AI interview to make sure you can defend every link of it.
 | **profile page** | ప్రొఫైల్ పేజీ — మీ పేరుతో ఉండే ముఖ్య పేజీ (GitHub లో `yourname/yourname` రిపో README). |
 | **pin (a repo)** | పిన్ చేయడం — ప్రొఫైల్ పైభాగంలో ఎంచుకున్న రిపోలను శాశ్వతంగా కనిపించేలా అమర్చడం. |
 | **portfolio** | పోర్ట్‌ఫోలియో — మీ ఉత్తమ పనుల సేకరణ; లైవ్ లింకులు, వీడియోలు, కోడ్ — అన్నీ ఒకచోట. |
+| **AI coding agent** | ఏఐ కోడింగ్ ఏజెంట్ — ప్రాజెక్ట్ చదివి, ఫైళ్ళు మార్చి, కమాండ్లు నడపగల (మీ అనుమతితో) AI సహాయకుడు; opencode ఇలాంటిదే. |
+| **opencode** | ఓపెన్‌కోడ్ — టెర్మినల్‌లో నడిచే open-source AI కోడింగ్ ఏజెంట్; అనేక AI మోడల్స్‌తో పనిచేస్తుంది. |
+| **model / provider** | మోడల్ / ప్రొవైడర్ — జవాబులిచ్చే AI మెదడు (Claude, GPT, Gemini) / దాన్ని అందించే సంస్థ. |
+| **API key** | ఏపీఐ కీ — AI సేవను వాడటానికి ఇచ్చే రహస్య తాళంచెవి; కోడ్‌లో/రిపోలో ఎప్పుడూ పెట్టకూడదు. |
+| **plan mode / build mode** | ప్రణాళిక / నిర్మాణ రీతులు — ముందు చర్చించడం (ఏ ఫైలూ మారదు), తర్వాత మార్పులు చేయించడం; Tab తో మారతాం. |
+| **diff review** | తేడాల సమీక్ష — AI ప్రతిపాదించిన ప్రతి మార్పును అంగీకరించే ముందు వరుస-వరుసగా చదవడం; రచయిత మీరే. |
+| **pair programming** | జోడి ప్రోగ్రామింగ్ — ఇద్దరు కలిసి ఒకే కోడ్‌పై పనిచేయడం; ఇక్కడ రెండో వ్యక్తి AI. |
