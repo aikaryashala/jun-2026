@@ -409,6 +409,72 @@ first impression handled.
    Guideline 4 interview — where "the AI wrote it" is never an accepted
    answer.
 
+### Samples — things to actually type into opencode
+
+Try these on code you already have (your `sum.c` and test files from the
+earlier tasks are perfect practice material). Each sample shows the *shape*
+of a good ask — copy the shape, change the details.
+
+**Sample 1 — understand before you touch (plan mode):**
+```
+Read sum.c and explain it to me line by line, in simple words.
+What exactly happens when the user types a letter instead of a number?
+```
+Then check the answer yourself — run `./sum`, type `abc`, watch.
+
+**Sample 2 — a small, well-bounded change (plan first, then build):**
+```
+Plan: I want sum.c to reject non-number input and ask again instead of
+misbehaving. Don't change any code yet - tell me the approach and which
+lines will change.
+```
+Read the plan. If you agree, press Tab into build mode:
+```
+Do it. Keep the change as small as possible, and keep the exact output
+format for valid input unchanged, because my test files depend on it.
+```
+Notice the last clause — *you* knew the tests matter (Task 7); the AI didn't
+until you said so. That context is your job.
+
+**Sample 3 — grow the test suite:**
+```
+Look at test_sum.sh, input1.txt and expected_output1.txt to see how my
+tests work. Add two more test cases in the same style: one with negative
+numbers, one with large numbers. Update test_sum.sh to run all 4.
+```
+Then run `./test_sum.sh` yourself — never take "the tests should pass now"
+on faith.
+
+**Sample 4 — when you're stuck on an error:**
+```
+When I run ./test_sum.sh I get the output below. Explain what is wrong
+and where to look - give me hints, not the fix, I want to try first.
+
+[paste the actual error output here]
+```
+(The "hints, not the fix" clause is Guideline 4's trick, reused — you learn
+more, and you can drop it when you're truly stuck.)
+
+**Sample 5 — housekeeping chores it does well:**
+```
+Write a README.md for this project: what it does, how to compile it,
+how to run the tests. Short and honest - no marketing language.
+```
+```
+Create a .gitignore for a C project like this one - the compiled
+executables and editor junk should never be committed.
+```
+Chores like these are where the agent saves the most time at zero risk —
+review the diff, commit, done.
+
+**Sample 6 — the whole-project question (before the Guideline 4 interview):**
+```
+Act as a reviewer: what are the 3 weakest points of this project's code?
+For each one, explain why it is a problem. Don't fix anything.
+```
+Bring the answers to your team — fixing them *yourselves* is the best
+interview preparation there is.
+
 **Takeaway to say out loud:** opencode puts an AI pair-programmer inside your
 terminal — plan first, ask small, review every diff, commit around it, test
 after it. The AI multiplies your speed; Guidelines 1–7 make sure it never
