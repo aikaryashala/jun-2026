@@ -15,6 +15,27 @@ Only these three. Nothing else on this sheet.
 
 ---
 
+## Your paper tool — the memory ladder
+
+You already know this diagram from class: memory drawn as a **ladder**, one variable per rung — the variable's **name on one side**, its current value inside the box, and its **memory address on the other side**. Every frame you draw on this sheet uses exactly this format. For `main`'s frame just after line 15 it looks like:
+
+```
+              ┌─────────┐
+   num1       │   234   │   0x7fffffffe0a8
+              ├─────────┤
+   num2       │   97    │   0x7fffffffe0ac
+              ├─────────┤
+   result1    │    ?    │   0x7fffffffe0b0
+              ├─────────┤
+   result2    │    ?    │   0x7fffffffe0b4
+              └─────────┘
+                  main
+```
+
+Write `?` on a rung that has not been assigned yet — and when the debugger later shows you what that `?` actually holds, write the real number beside it. The addresses are never invented: copy them from the debugger — `frame variable -L` prints every variable's address (the sample addresses above only show the shape). When several functions are alive at the same time, draw one ladder **per frame** and stack the ladders: the running function on top, `main` at the bottom — the same order `bt` prints them.
+
+---
+
 ## The program: `lsds_compute.c`
 
 Create a file named exactly `lsds_compute.c` and type this program **exactly as shown** — the line numbers below matter for the whole worksheet:
@@ -164,7 +185,7 @@ Now also note down **where** these variables live:
 (lldb) frame variable -L
 ```
 
-The long hex numbers on the left (like `0x00007fffffffe0a8`) are memory addresses. Copy the address of `sum` into your notebook — label it "`&sum`, 1st run". You will meet this neighbourhood again.
+The long hex numbers on the left (like `0x00007fffffffe080`) are memory addresses. Draw this frame as a memory ladder — names on one side, addresses on the other — and label the `sum` rung "`&sum`, 1st run". You will meet this neighbourhood again.
 
 **Takeaway to say out loud:** "Arguments arrive filled by the caller; locals arrive as whatever was left in memory."
 
@@ -280,7 +301,18 @@ You are now inside `cube` for the call from line 60 (`cube(lsd1)`, so `n = 4`). 
 
 From `bt`, write down frame #1's address **and** line number. From `frame variable`, note `n` and the junk in `result`. From `-L`, write down "`&result`, 1st call".
 
-Then go to the **second** call:
+**Now the big drawing of the day — for this first call only.** While stopped right here, draw the **entire call stack as memory ladders**: every variable of every function that is alive — `cube` on top, `sum_of_cubes_lsds` below it, `main` at the bottom. Names on one side, addresses on the other. Collect each frame's values **and addresses** frame by frame:
+
+```
+(lldb) frame variable -L
+(lldb) frame select 1
+(lldb) frame variable -L
+(lldb) frame select 2
+(lldb) frame variable -L
+(lldb) frame select 0
+```
+
+Mark every ghost you spot on its rung. Only after the drawing is complete, go to the **second** call:
 
 ```
 (lldb) continue
@@ -296,6 +328,47 @@ First stop — `bt` shows the call stack three deep, and frame #1 points at **li
     frame #1: 0x0000555555555230 lsds_compute`sum_of_cubes_lsds(x=234, y=97) at lsds_compute.c:60
     frame #2: ... main at lsds_compute.c:18
 ```
+
+And your full-stack ladder drawing should look like this (the addresses here are samples — copy your real ones; junk values will differ; ghosts marked):
+
+```
+              ┌─────────┐
+   n          │    4    │   0x7fffffffe058
+              ├─────────┤
+   result     │    ?    │   0x7fffffffe05c
+              └─────────┘
+                  cube                        ← running now
+
+              ┌─────────┐
+   x          │   234   │   0x7fffffffe070
+              ├─────────┤
+   y          │   97    │   0x7fffffffe074
+              ├─────────┤
+   lsd1       │    4    │   0x7fffffffe078
+              ├─────────┤
+   lsd2       │    7    │   0x7fffffffe07c
+              ├─────────┤
+   cube_sum   │   11    │   0x7fffffffe080   ← ghost of sum
+              ├─────────┤
+   cube1      │    ?    │   0x7fffffffe084
+              ├─────────┤
+   cube2      │    ?    │   0x7fffffffe088
+              └─────────┘
+              sum_of_cubes_lsds
+
+              ┌─────────┐
+   num1       │   234   │   0x7fffffffe0a8
+              ├─────────┤
+   num2       │   97    │   0x7fffffffe0ac
+              ├─────────┤
+   result1    │   11    │   0x7fffffffe0b0
+              ├─────────┤
+   result2    │    ?    │   0x7fffffffe0b4
+              └─────────┘
+                  main
+```
+
+Three functions alive at once, three ladders. Check two things against your notebook: the ghost of `sum` sits in the middle ladder, and `cube_sum`'s address is the same neighbourhood as the "`&sum`, 1st run" address you wrote in Iteration 2.
 
 Second stop — same function, same breakpoint, but frame #1 now shows a **different address**, pointing at **line 61**:
 
