@@ -1,0 +1,37 @@
+Create task6 regarding the following 
+
+pipes and redirections
+
+|
+>
+>>
+<
+
+make them use them with these commands echo, more, head, tail
+
+
+Also they have the an executable 'sum' generated from sum.c
+For that file make them generate input.txt and expected_output.txt and output.txt.
+These 3 files act as testing for input and expected_output.
+They need to be clear about what goes to input stream and what goes to output stream. Also discuss stdin and stdout working in case of C programs.
+
+Sample code to use, for which 2 test cases must be generated.
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int number1, number2, sum;
+
+    printf("To add two numbers.\n");
+    printf("Enter the first number: ");
+    scanf("%i", &number1);
+    printf("Enter the second number: ");
+    scanf("%i", &number2);
+    sum = number1 + number2;
+    printf("The sum of %i and %i is %i.\n", number1, number2, sum);
+
+    return 0;
+}
+```
