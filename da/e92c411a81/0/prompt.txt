@@ -1,0 +1,28 @@
+create task5/ which make students learn all these commands. Create sub-tasks, where students explore these commands.
+
+man man
+clear
+uname -a
+echo
+kill
+du
+ls -a
+chmod with a sequence of commands in .sh file and run with bash script.sh or ./script.sh after +x using chmod
+curl
+touch
+date
+time
+rmdir
+who
+whoami
+which
+whereis
+
+And finally add these tasks for them to complete, to know more about the system.
+
+How to set time-zone of ubuntu machine?
+
+How to find all the commands in a linux machine using System path.
+echo $PATH
+
+Write one line echo command to get team members names one in each line.
