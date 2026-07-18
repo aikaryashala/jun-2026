@@ -1,0 +1,3 @@
+<interrupted-output>
+I'll create `docs/task5/` in the same style — an HTML shell rendering a markdown lab worksheet — with sub-tasks grouping those commands, the three final "missions", and a Telugu New Words section like task4/task6. First the markdown:
+</interrupted-output>
