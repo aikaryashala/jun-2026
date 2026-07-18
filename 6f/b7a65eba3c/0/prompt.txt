@@ -1,0 +1,11 @@
+When you are doing a project you need to follow the following guidelines.
+
+1. Commit you code early to github, even it is not finished. Keep commiting daily.
+2. Buy a domain with 6-9 digits and .xyz.
+3. Deploy your project using vercel, railways, render, supabase.
+4.Give you codebase to GenAI like chatgpt and ask it to act like an interview and ask questions, without giving answers, tell it to give hints, for first 3 tries, then explain the answer. After 5 questions, ask it summarize what we learnt. Do it in a group of 5 members of the project.
+5.Create a demo video and upload to youtube and embed in your github project README.md file. 
+6. Create an implementation vidoe and do the same as above.
+7. Add both the video to your profile page.
+
+Now create explainer for each action, why it is important and what is the best way to do it. Create as task9
