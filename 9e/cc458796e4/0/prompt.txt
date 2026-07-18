@@ -1,0 +1,1 @@
+In first code example change the variables a and b to num1 and num2. in the second example code, change the variable n to count.
