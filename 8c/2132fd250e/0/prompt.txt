@@ -1,0 +1,3 @@
+before task7 add a link to 'June Overview Presentations' and link it to the index.html file in june_overview_slides/ folder. The index.html in this folder must link to the presentation slides inside the folder for first 3 teams and for the 4th and 5th team add these links. 4th team link: https://gamma.app/docs/REDACTED 5th team link: https://saijyothikilaparthi.github.io/demo_june/
+
+Keep similar theme
