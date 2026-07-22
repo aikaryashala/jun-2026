@@ -82,9 +82,9 @@ void print_bits(int value)
     int i;
 
     i = 31;
-    while (i >= 0;) 
+    while (i >= 0) 
     {
-        if ((value >> i) & 1)
+        if (((value >> i) & 1) == 1)
         {
             putchar('1');
         }
