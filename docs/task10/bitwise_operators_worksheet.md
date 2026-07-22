@@ -81,10 +81,22 @@ void print_bits(int value)
 {
     int i;
 
-    for (i = 31; i >= 0; i--) {
-        putchar(((value >> i) & 1) ? '1' : '0');
+    i = 31;
+    while (i >= 0;) 
+    {
+        if ((value >> i) & 1)
+        {
+            putchar('1');
+        }
+        else
+        {
+            putchar('0');
+        }
         if (i % 4 == 0 && i != 0)
+        {
             putchar(' ');
+        }
+        i = i - 1
     }
     putchar('\n');
 }
