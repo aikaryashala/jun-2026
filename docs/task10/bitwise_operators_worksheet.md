@@ -96,7 +96,7 @@ void print_bits(int value)
         {
             putchar(' ');
         }
-        i = i - 1
+        i = i - 1;
     }
     putchar('\n');
 }
