@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Setting Up and Using CS50 Tools</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F2F5FA;
+    --card:#FFFFFF;
+    --ink:#16202E;
+    --muted:#586375;
+    --accent:#1F5FE0;
+    --accent-soft:#ECF2FE;
+    --rule:#E5EAF2;
+    --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+    --display:'Space Grotesk',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.7;
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(rgba(31,95,224,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31,95,224,.045) 1px, transparent 1px);
+    background-size:28px 28px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    display:flex; align-items:center; gap:18px;
+    flex-wrap:wrap;
+    padding:11px clamp(16px,4vw,40px);
+    background:rgba(255,255,255,.82);
+    backdrop-filter:saturate(140%) blur(8px);
+    -webkit-backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .brand{
+    font-family:var(--mono);
+    font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); white-space:nowrap;
+  }
+  .pipeline{display:flex; align-items:center; gap:6px; overflow-x:auto; padding-bottom:2px;}
+  .pipeline::-webkit-scrollbar{height:0;}
+  .stage{
+    font-family:var(--mono); font-size:.82rem; font-weight:500;
+    color:#fff; background:var(--accent); border:1px solid var(--accent);
+    padding:3px 9px; border-radius:6px; white-space:nowrap;
+  }
+  .arrow{color:#A9B6C9; font-family:var(--mono); font-size:.9rem; user-select:none;}
+
+  main{padding:clamp(20px,4vw,52px) 16px 96px;}
+  .sheet{
+    max-width:1000px; margin:0 auto;
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:14px;
+    box-shadow:0 1px 2px rgba(22,32,46,.04), 0 18px 40px -28px rgba(22,32,46,.28);
+    padding:clamp(24px,5vw,56px);
+  }
+
+  h1{
+    font-family:var(--display); font-weight:700;
+    line-height:1.18; letter-spacing:-.015em;
+    font-size:clamp(1.9rem,4.2vw,2.7rem);
+    margin:0 0 .3em;
+  }
+  .lede{color:var(--muted); margin:0 0 2em; font-size:1.05rem;}
+
+  .step{margin:2.4em 0;}
+  .step:first-of-type{margin-top:1.4em;}
+  .step h2{
+    font-family:var(--display); font-weight:600;
+    font-size:1.18rem; letter-spacing:-.01em;
+    margin:0 0 .7em; padding-left:14px;
+    border-left:4px solid var(--accent);
+    display:flex; align-items:baseline; gap:.55em;
+  }
+  .num{
+    font-family:var(--mono); font-size:.8rem; font-weight:500;
+    color:#fff; background:var(--accent);
+    min-width:1.7em; height:1.7em; padding:0 .4em;
+    border-radius:50%; display:inline-flex; align-items:center; justify-content:center;
+    flex:none; transform:translateY(-1px);
+  }
+  figure{margin:0;}
+  a.shot{display:block; border-radius:12px; overflow:hidden; border:1px solid var(--rule);
+    box-shadow:0 1px 2px rgba(22,32,46,.05);}
+  a.shot img{display:block; width:100%; height:auto;}
+
+  .note{
+    margin-top:2.6em;
+    background:var(--accent-soft); border:1px solid #D5E2FB;
+    border-left:4px solid var(--accent);
+    border-radius:12px; padding:16px 20px;
+    font-size:.96rem; color:#1b3a73;
+  }
+  .note code{font-family:var(--mono); background:#fff; padding:.1em .4em; border-radius:5px; border:1px solid #D5E2FB;}
+
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px;}
+  @media (max-width:560px){ body{font-size:16px;} .brand{display:none;} }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand">CS50&nbsp;Tools · Setup</span>
+    <nav class="pipeline" aria-label="Setup stages">
+      <span class="stage">Ubuntu setup</span><span class="arrow">›</span>
+      <span class="stage">install tools</span><span class="arrow">›</span>
+      <span class="stage">use tools</span>
+    </nav>
+  </header>
+
+  <main>
+    <article class="sheet">
+      <h1>Setting Up and Using CS50 Tools</h1>
+      <p class="lede">Three reference cards, in order: prepare your Ubuntu machine, install the CS50 command-line tools with pipx, then run, check, style and submit your code. Click any card to open it full size.</p>
+
+      <section class="step">
+        <h2><span class="num">1</span> Set up Python &amp; formatting tools on Ubuntu</h2>
+        <figure>
+          <a class="shot" href="1_setup_python_ubuntu.png" target="_blank" rel="noopener">
+            <img src="1_setup_python_ubuntu.png" alt="Ubuntu setup steps: sudo apt update; sudo apt install python3 python3-pip python3-venv python3-dev -y; sudo apt install astyle clang-format -y; sudo apt install pipx -y; pipx ensurepath; logout. Note: after logging back in, pipx-installed applications are available system-wide.">
+          </a>
+        </figure>
+      </section>
+
+      <section class="step">
+        <h2><span class="num">2</span> Install CS50 tools with pipx</h2>
+        <figure>
+          <a class="shot" href="2_install_cs50_tools.png" target="_blank" rel="noopener">
+            <img src="2_install_cs50_tools.png" alt="Install CS50 tools with pipx: pipx install check50; which check50; pipx install submit50; pipx install style50; pipx install help50. Note: these commands install CS50's tools globally using pipx; after installation the tools are available system-wide.">
+          </a>
+        </figure>
+      </section>
+
+      <section class="step">
+        <h2><span class="num">3</span> Use CS50 tools: run, check, style &amp; submit</h2>
+        <figure>
+          <a class="shot" href="3_use_cs50_tools.png" target="_blank" rel="noopener">
+            <img src="3_use_cs50_tools.png" alt="Using CS50 tools: cd ~/c-programs; submit50 aikaryashala/algorithms/june-2026/sum/c; check50 --local aikaryashala/algorithms/june-2026/sum/c; style50 sum.c; style50 -i sum.c to auto-fix; style50 sum.c again; submit50 again. Tip: always run check50 --local and style50 before submitting.">
+          </a>
+        </figure>
+      </section>
+
+      <p class="note">Tip: always run <code>check50 --local</code> and <code>style50</code> before <code>submit50</code>, so your code passes the checks and follows the style guide before the final evaluation.</p>
+    </article>
+  </main>
+</body>
+</html>
