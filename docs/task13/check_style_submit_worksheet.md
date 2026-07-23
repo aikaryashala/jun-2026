@@ -40,6 +40,7 @@ If your file was already named `product.c`, skip this — there is nothing to re
 From inside `~/c-programs`, for any problem `<name>`:
 
 ```
+submit50 aikaryashala/algorithms/june-2026/<name>/c
 check50 --local aikaryashala/algorithms/june-2026/<name>/c
 style50 <name>.c
 style50 -i <name>.c
@@ -47,7 +48,7 @@ style50 <name>.c
 submit50 aikaryashala/algorithms/june-2026/<name>/c
 ```
 
-Check correctness first, fix the style, look again, then submit. Never submit before `check50 --local` and `style50` are both clean.
+**Submit once first, as your file is** — this saves a copy of your original work before any fixes. Then check correctness, fix the style, look again, and submit a second time. The two submissions give a before-and-after record of your program.
 
 ---
 
@@ -73,7 +74,15 @@ git commit -m "Rename prod.c to product.c"
 git push
 ```
 
-**3. Check correctness locally**
+**3. Submit your code as it is (first submission)**
+
+```
+submit50 aikaryashala/algorithms/june-2026/product/c
+```
+
+Do this *before* running any checks or style fixes. It saves a copy of your original `product.c` — the way you first wrote it — so you have a before-and-after record once you fix things below.
+
+**4. Check correctness locally**
 
 ```
 check50 --local aikaryashala/algorithms/june-2026/product/c
@@ -81,15 +90,15 @@ check50 --local aikaryashala/algorithms/june-2026/product/c
 
 Read every check. A green `:)` means that check passed; a red `:(` tells you what went wrong — fix `product.c` and run this again until all checks are green.
 
-**4. Check the code style**
+**5. Check the code style**
 
 ```
 style50 product.c
 ```
 
-`style50` shows how many changes it would make. `0` changes means your style is already clean; any other number means read on to step 5.
+`style50` shows how many changes it would make. `0` changes means your style is already clean; any other number means read on to step 6.
 
-**5. Automatically fix the style**
+**6. Automatically fix the style**
 
 ```
 style50 -i product.c
@@ -97,7 +106,7 @@ style50 -i product.c
 
 The `-i` edits `product.c` in place, applying the style fixes for you.
 
-**6. Check the style again**
+**7. Check the style again**
 
 ```
 style50 product.c
@@ -105,19 +114,19 @@ style50 product.c
 
 Confirm it now reports no changes — your file follows the style guide.
 
-**7. Submit**
+**8. Submit again (final submission)**
 
 ```
 submit50 aikaryashala/algorithms/june-2026/product/c
 ```
 
-Once correctness and style are both clean, submit for the final evaluation.
+Now that correctness and style are both clean, submit a second time for the final evaluation.
 
 ---
 
 ## Now do the rest yourself
 
-For each problem below: first check the file is named `<name>.c` (rename with `git mv` and commit if it isn't), then run the **same five commands** as `product` — just swap in the name. The expected C file and the slug are given so you can't slip.
+For each problem below: first check the file is named `<name>.c` (rename with `git mv` and commit if it isn't), then run the **same six commands** as `product` — submit once as-is, check, style, fix, style, submit again — just swap in the name. The expected C file and the slug are given so you can't slip.
 
 | # | Problem `<name>` | C file | slug for `check50 --local` / `submit50` |
 |---|---|---|---|
@@ -132,6 +141,7 @@ For each problem below: first check the file is named `<name>.c` (rename with `g
 For example, the first one is exactly:
 
 ```
+submit50 aikaryashala/algorithms/june-2026/natural_numbers_up_to_n/c
 check50 --local aikaryashala/algorithms/june-2026/natural_numbers_up_to_n/c
 style50 natural_numbers_up_to_n.c
 style50 -i natural_numbers_up_to_n.c
@@ -139,7 +149,7 @@ style50 natural_numbers_up_to_n.c
 submit50 aikaryashala/algorithms/june-2026/natural_numbers_up_to_n/c
 ```
 
-Tick off each problem only when both `check50 --local` is all green and `style50` reports no changes, and the submission went through.
+Tick off each problem only when you submitted once at the start, `check50 --local` is all green, `style50` reports no changes, and the final submission went through.
 
 ---
 
@@ -156,7 +166,7 @@ Tick off each problem only when both `check50 --local` is all green and `style50
 | `style50 -i <name>.c` | fix the style automatically, editing the file in place |
 | `submit50 <slug>` | send your program to CS50's server for the final evaluation |
 
-**Rules to keep:** the file must be named `<name>.c` — rename with `git mv` and commit if it isn't · always `check50 --local` and `style50` **before** `submit50` · the slug is `aikaryashala/algorithms/june-2026/<name>/c` · a submission counts only after correctness and style are both clean.
+**Rules to keep:** the file must be named `<name>.c` — rename with `git mv` and commit if it isn't · **submit first as-is**, then check correctness and style, then **submit again** — the two submissions are your before-and-after record · the slug is `aikaryashala/algorithms/june-2026/<name>/c` · the final submission should have correctness and style both clean.
 
 ---
 
@@ -170,3 +180,5 @@ Tick off each problem only when both `check50 --local` is all green and `style50
 | slug | స్లగ్ | సమస్యను గుర్తించే పొడవైన పేరు (దారి) |
 | local check | స్థానిక పరీక్ష | పంపే ముందు మీ మెషిన్‌లోనే చేసే పరీక్ష (`--local`) |
 | in place (`-i`) | అక్కడికక్కడే | ఫైల్‌ను అదే చోట మార్చడం |
+| rename (`git mv`) | పేరు మార్చడం | git కి తెలిసేలా ఫైల్ పేరును మార్చడం |
+| commit | కమిట్ | మార్పులను git చరిత్రలో భద్రపరచడం |
