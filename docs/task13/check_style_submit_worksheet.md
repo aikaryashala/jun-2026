@@ -124,19 +124,42 @@ Now that correctness and style are both clean, submit a second time for the fina
 
 ---
 
-## Now do the rest yourself
+## The full problem list
 
-For each problem below: first check the file is named `<name>.c` (rename with `git mv` and commit if it isn't), then run the **same six commands** as `product` — submit once as-is, check, style, fix, style, submit again — just swap in the name. The expected C file and the slug are given so you can't slip.
+Here is every problem to work through. You have already seen `sum` (Task 12) and `product` (the example above); do all the rest the same way.
 
-| # | Problem `<name>` | C file | slug for `check50 --local` / `submit50` |
-|---|---|---|---|
-| 1 | `natural_numbers_up_to_n` | `natural_numbers_up_to_n.c` | `aikaryashala/algorithms/june-2026/natural_numbers_up_to_n/c` |
-| 2 | `even_numbers_up_to_n` | `even_numbers_up_to_n.c` | `aikaryashala/algorithms/june-2026/even_numbers_up_to_n/c` |
-| 3 | `odd_numbers_up_to_n` | `odd_numbers_up_to_n.c` | `aikaryashala/algorithms/june-2026/odd_numbers_up_to_n/c` |
-| 4 | `n_even_numbers` | `n_even_numbers.c` | `aikaryashala/algorithms/june-2026/n_even_numbers/c` |
-| 5 | `n_even_numbers_v2` | `n_even_numbers_v2.c` | `aikaryashala/algorithms/june-2026/n_even_numbers_v2/c` |
-| 6 | `n_odd_numbers` | `n_odd_numbers.c` | `aikaryashala/algorithms/june-2026/n_odd_numbers/c` |
-| 7 | `n_odd_numbers_v2` | `n_odd_numbers_v2.c` | `aikaryashala/algorithms/june-2026/n_odd_numbers_v2/c` |
+For each problem: first check the file is named `<name>.c` (rename with `git mv` and commit if it isn't), then run the **same six commands** as `product` — submit once as-is, check, style, fix, style, submit again — just swap the name in. Build the file name (`<name>.c`) and the slug (`aikaryashala/algorithms/june-2026/<name>/c`) from the problem name yourself, exactly as you did for `product`.
+
+| # | Problem `<name>` |
+|---|---|
+| 1 | `sum` |
+| 2 | `product` |
+| 3 | `natural_numbers_up_to_n` |
+| 4 | `even_numbers_up_to_n` |
+| 5 | `odd_numbers_up_to_n` |
+| 6 | `n_even_numbers` |
+| 7 | `n_even_numbers_v2` |
+| 8 | `n_odd_numbers` |
+| 9 | `n_odd_numbers_v2` |
+| 10 | `sum_and_product` |
+| 11 | `sum_of_even_up_to_n` |
+| 12 | `sum_of_n_natural_numbers` |
+| 13 | `multiples_of_7` |
+| 14 | `multiplication_table` |
+| 15 | `table_book` |
+| 16 | `square_series_up_to_n` |
+| 17 | `n_terms_in_square_series` |
+| 18 | `n_power_n` |
+| 19 | `n_power_n_series_up_to_n` |
+| 20 | `n_terms_in_n_power_n_series` |
+| 21 | `fibonacci_up_to_n` |
+| 22 | `n_terms_in_fibonacci_series` |
+| 23 | `prime` |
+| 24 | `max_of_two` |
+| 25 | `max_of_two_v2` |
+| 26 | `max_of_three` |
+| 27 | `max_of_three_v2` |
+| 28 | `max_of_ten` |
 
 For example, the first one is exactly:
 
