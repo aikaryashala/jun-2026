@@ -109,3 +109,7 @@ python3 -m http.server 8000
 4. Add the task's `<li>` to `docs/index.html`.
 5. Serve `docs/` and click all three links; confirm each renders and the browser-tab
    title matches the md's `# Title`.
+
+For the guided version of this — propose an outline, review with the user, then
+create everything on confirmation — use the **`create-task`** skill
+(`.claude/skills/create-task/SKILL.md`), triggered by "create task on <topic>".
