@@ -68,7 +68,7 @@ shows `num1 = 32767` or some other strange number. What are you looking at?
 - (c) Executes one machine instruction
 - (d) Moves the arrow without executing anything
 
-**Q8.** The arrow is on `printf("biggest = %d\n", big);` and you press
+**Q8.** The arrow is on `printf("biggest = %i\n", big);` and you press
 `next`. What happens?
 
 - (a) The debugger steps into printf's own source code

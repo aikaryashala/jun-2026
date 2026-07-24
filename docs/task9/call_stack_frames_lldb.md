@@ -60,8 +60,8 @@ int main()
     result1 = sum_of_lsds(num1, num2);
     result2 = sum_of_cubes_lsds(num1, num2);
 
-    printf("Sum of LSDs = %d\n", result1);
-    printf("Sum of cubes of LSDs = %d\n", result2);
+    printf("Sum of LSDs = %i\n", result1);
+    printf("Sum of cubes of LSDs = %i\n", result2);
 
     return 0;
 }

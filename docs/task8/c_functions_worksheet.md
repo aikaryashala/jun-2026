@@ -61,7 +61,7 @@ int main()
 {
     int number = 45;
 
-    printf("The number is %d.\n", number);
+    printf("The number is %i.\n", number);
     return 0;
 }
 ```
@@ -119,7 +119,7 @@ int main()
     int total;
 
     total = sum_of_digits(number);
-    printf("Sum of digits of %d is %d.\n", number, total);
+    printf("Sum of digits of %i is %i.\n", number, total);
     return 0;
 }
 
@@ -181,8 +181,8 @@ The whole point of a function: **write the work once, use it many times.**
        int number1 = 45;
        int number2 = 87;
 
-       printf("Sum of digits of %d is %d.\n", number1, sum_of_digits(number1));
-       printf("Sum of digits of %d is %d.\n", number2, sum_of_digits(number2));
+       printf("Sum of digits of %i is %i.\n", number1, sum_of_digits(number1));
+       printf("Sum of digits of %i is %i.\n", number2, sum_of_digits(number2));
        return 0;
    }
    ```
@@ -236,10 +236,10 @@ int main()
     int number1 = 45;
     int number2 = 87;
 
-    printf("Sum of digits of %d is %d.\n", number1, sum_of_digits(number1));
-    printf("Sum of digits of %d is %d.\n", number2, sum_of_digits(number2));
-    printf("Reverse of %d is %d.\n", number1, reverse_of_number(number1));
-    printf("Reverse of %d is %d.\n", number2, reverse_of_number(number2));
+    printf("Sum of digits of %i is %i.\n", number1, sum_of_digits(number1));
+    printf("Sum of digits of %i is %i.\n", number2, sum_of_digits(number2));
+    printf("Reverse of %i is %i.\n", number1, reverse_of_number(number1));
+    printf("Reverse of %i is %i.\n", number2, reverse_of_number(number2));
     return 0;
 }
 
@@ -372,10 +372,10 @@ int main()
     int number1 = 45;
     int number2 = 87;
 
-    printf("Sum of digits of %d is %d.\n", number1, sum_of_digits(number1));
-    printf("Sum of digits of %d is %d.\n", number2, sum_of_digits(number2));
-    printf("Reverse of %d is %d.\n", number1, reverse_of_number(number1));
-    printf("Reverse of %d is %d.\n", number2, reverse_of_number(number2));
+    printf("Sum of digits of %i is %i.\n", number1, sum_of_digits(number1));
+    printf("Sum of digits of %i is %i.\n", number2, sum_of_digits(number2));
+    printf("Reverse of %i is %i.\n", number1, reverse_of_number(number1));
+    printf("Reverse of %i is %i.\n", number2, reverse_of_number(number2));
     return 0;
 }
 ```

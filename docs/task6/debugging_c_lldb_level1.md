@@ -91,7 +91,7 @@ int main()
         big = num2;
     }
 
-    printf("biggest = %d\n", big);
+    printf("biggest = %i\n", big);
     return 0;
 }
 ```
@@ -295,7 +295,7 @@ int main()
         count = count - 1;
     }
 
-    printf("total = %d\n", total);
+    printf("total = %i\n", total);
     return 0;
 }
 ```
