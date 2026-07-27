@@ -145,8 +145,8 @@ int main()
 ```
 (lldb) breakpoint set --file <file>.c --line 8
 (lldb) run
-(lldb) memory read -f x -s 1 -c 6 name
-(lldb) memory read -f c -s 1 -c 6 name
+(lldb) memory read -f x -s 1 -c 6 &name
+(lldb) memory read -f c -s 1 -c 6 &name
 ```
 
 **c. Observation (what you should find)**
