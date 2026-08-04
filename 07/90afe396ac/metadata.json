@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "0790afe396ac",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "docs/index.html",
+    "docs/task30/python_input_and_types_questions.html",
+    "docs/task30/python_input_and_types_questions.md",
+    "docs/task30/python_input_and_types_worksheet.html",
+    "docs/task30/python_input_and_types_worksheet.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/07/90afe396ac/0/metadata.json",
+      "transcript": "/07/90afe396ac/0/full.jsonl",
+      "compact_transcript": "/07/90afe396ac/0/transcript.jsonl",
+      "content_hash": "/07/90afe396ac/0/content_hash.txt",
+      "prompt": "/07/90afe396ac/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 54,
+    "cache_creation_tokens": 55508,
+    "cache_read_tokens": 1497100,
+    "output_tokens": 30190,
+    "api_call_count": 29
+  }
+}

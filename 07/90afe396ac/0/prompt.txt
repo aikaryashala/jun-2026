@@ -1,0 +1,19 @@
+/create-task Need to make them understand how Python input() function works and the types of values. Some examples with errors. sample examples Balaji = "12345"
+num = int(Balaji)
+Govind = str(num)
+print(Govind)
+print(Balaji,  num,  Govind)
+print(Balaji,  Govind,  sep="-")
+print(Balaji,  Govind,  sep="",   end="")
+ 
+in = "hi123"
+num = int(in)
+print(num)
+output:
+print(type(num))
+print(type(2.5))
+print(type("Balaji")) They need to understand how print function works with seperator and ending. Give different examples with just integers values and string values only. Don't use any other types in examples. also use int() and str() functions. Use task30/ as folder name and 30 as task number.
+
+---
+
+Add more sample codes and ask for output, and then create them
