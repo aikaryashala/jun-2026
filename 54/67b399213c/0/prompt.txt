@@ -1,0 +1,47 @@
+/create-task Need to make them understand how Python input() function works and the types of values. Some examples with errors. sample examples Balaji = "12345"
+num = int(Balaji)
+Govind = str(num)
+print(Govind)
+print(Balaji,  num,  Govind)
+print(Balaji,  Govind,  sep="-")
+print(Balaji,  Govind,  sep="",   end="")
+ 
+in = "hi123"
+num = int(in)
+print(num)
+output:
+print(type(num))
+print(type(2.5))
+print(type("Balaji")) They need to understand how print function works with seperator and ending. Give different examples with just integers values and string values only. Don't use any other types in examples. also use int() and str() functions. Use task30/ as folder name and 30 as task number.
+
+---
+
+Add more sample codes and ask for output, and then create them
+
+---
+
+add TODOs in readme file 1.Git internals, what are the files that are created with 'git init' command. Where are the global configurations stored for 'git config --global ...' once the first commit does, how does the .git folder get updated with several objects. And what the hooks and what points in the flow they are available to trigger these hook. Real examples of how these hooks are used in the industry.
+
+---
+
+yes bring that section up to date
+
+---
+
+it's a stale ref remove it
+
+---
+
+yes update the task list too.
+
+---
+
+/create-task with all the TODOs in the README file, regarding 'git internals' and name the task as task21. Once done remove the TODOs.
+
+---
+
+use docker for linux if needed
+
+---
+
+create the files

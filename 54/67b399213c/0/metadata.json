@@ -1,0 +1,159 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "5467b399213c",
+  "session_id": "e7ff6d39-aec0-448b-a109-6cd7c6e6aa84",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-06T05:40:00.440145Z",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "save_step_count": 5,
+  "files_touched": [
+    "CLAUDE.md",
+    "README.md",
+    "docs/index.html",
+    "docs/task21/git_internals_questions.html",
+    "docs/task21/git_internals_questions.md",
+    "docs/task21/git_internals_worksheet.html",
+    "docs/task21/git_internals_worksheet.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "54f7657c1810",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 184,
+    "cache_creation_tokens": 200900,
+    "cache_read_tokens": 9423359,
+    "output_tokens": 101194,
+    "api_call_count": 98
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-create-task-2026-08-04T06:49:51.020722Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "create-task"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "d7b4797745a9",
+      "timestamp": "2026-08-04T06:49:51.020722Z",
+      "native": {
+        "command": "/create-task"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/create-task",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "prompt-skill-claude-code-create-task-2026-08-06T02:36:08.393639Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "create-task"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "c0d2aaad06a0",
+      "timestamp": "2026-08-06T02:36:08.393639Z",
+      "native": {
+        "command": "/create-task"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/create-task",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 9
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-06T05:40:00.390555Z",
+    "agent_lines": 1531,
+    "agent_removed": 33,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 1531,
+    "total_lines_changed": 1564,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 298,
+      "user_lines_removed": 0,
+      "agent_lines_added": 245,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 298,
+      "user_lines_removed": 0,
+      "agent_lines_added": 260,
+      "agent_lines_removed": 4,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 298,
+      "user_lines_removed": 0,
+      "agent_lines_added": 260,
+      "agent_lines_removed": 4,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 298,
+      "user_lines_removed": 0,
+      "agent_lines_added": 260,
+      "agent_lines_removed": 4,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41
+      }
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 298,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2053,
+      "agent_lines_removed": 33,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41
+      }
+    }
+  ]
+}

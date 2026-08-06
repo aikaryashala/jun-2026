@@ -1,0 +1,32 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "5467b399213c",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "files_touched": [
+    "CLAUDE.md",
+    "README.md",
+    "docs/index.html",
+    "docs/task21/git_internals_questions.html",
+    "docs/task21/git_internals_questions.md",
+    "docs/task21/git_internals_worksheet.html",
+    "docs/task21/git_internals_worksheet.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/54/67b399213c/0/metadata.json",
+      "transcript": "/54/67b399213c/0/full.jsonl",
+      "compact_transcript": "/54/67b399213c/0/transcript.jsonl",
+      "content_hash": "/54/67b399213c/0/content_hash.txt",
+      "prompt": "/54/67b399213c/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 184,
+    "cache_creation_tokens": 200900,
+    "cache_read_tokens": 9423359,
+    "output_tokens": 101194,
+    "api_call_count": 98
+  }
+}
