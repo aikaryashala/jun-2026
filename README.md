@@ -26,6 +26,7 @@ Everything servable lives under `docs/` (GitHub Pages style).
 | 14 | Address variables — store an address, reach the box | W · Q · A |
 | 15 | Bytes become meaning — colours, characters & encodings | W · Q · A |
 | 16 | Reading & writing files — raw bytes vs readable text | W · Q · A |
+| 21 | Git internals — inside the `.git` folder | W · Q · A |
 | 30 | Python `input()` and types — strings, numbers & how `print` lays them out | W · Q · A |
 
 **W** = worksheet · **Q** = question bank (MCQ, fill in the blanks, scenarios — no
@@ -35,35 +36,6 @@ is a screenshot-based reference page rather than the usual three. One slide deck
 
 Numbering follows the order the tasks were set for students, so there is a gap between
 16 and 30.
-
-## TODO — planned tasks
-
-### 1. Git internals
-
-- [ ] **What `git init` creates.** Walk through the `.git/` folder right after `git init`:
-      `HEAD`, `config`, `description`, `objects/`, `refs/heads/`, `refs/tags/`, `hooks/`,
-      `info/exclude`. What each one is for, and which are empty at this point.
-- [ ] **Where configuration lives.** The three levels and their files — system
-      (`/etc/gitconfig`), global (`~/.gitconfig` or `~/.config/git/config`, written by
-      `git config --global ...`), and local (`.git/config`, per repository). Show
-      precedence, and `git config --list --show-origin` to prove which file a setting
-      came from.
-- [ ] **What the first commit writes.** Before/after listing of `.git/objects/` — how one
-      commit produces a **blob** per file, a **tree** per directory, and one **commit**
-      object; how the SHA-1 hash becomes the `objects/ab/cdef...` path; and what changes
-      in `.git/refs/heads/master`, `HEAD`, `.git/index`, and `.git/logs/`. Inspect with
-      `git cat-file -t` / `-p` and `git hash-object`.
-- [ ] **Hooks — what they are and when they fire.** `.git/hooks/` and its `.sample`
-      files; that a hook is just an executable script; and the points in the flow where
-      each one runs: `pre-commit`, `prepare-commit-msg`, `commit-msg`, `post-commit`,
-      `pre-rebase`, `pre-push`, and the server-side `pre-receive`, `update`,
-      `post-receive`. Which ones can **block** the operation by exiting non-zero.
-- [ ] **Real industry uses of hooks.** Concrete examples students will meet: `pre-commit`
-      running a formatter/linter or blocking committed secrets and API keys;
-      `commit-msg` enforcing a message convention or an issue-ID prefix; `pre-push`
-      running the test suite before code leaves the machine; server-side `pre-receive`
-      rejecting force-pushes to `main`; `post-receive` triggering a deploy or CI run.
-      Mention the `pre-commit` framework and why hooks aren't committed with the repo.
 
 ## How the site works
 

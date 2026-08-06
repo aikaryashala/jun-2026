@@ -1,9 +1,10 @@
 # Project: C & Linux Worksheets (june1st2026)
 
 A static educational site (GitHub Pages style — everything servable lives under `docs/`)
-of C-programming and Linux worksheets with question banks, for beginner students who are
-Telugu speakers learning in English. Tasks are hands-on: students run commands, compile
-programs, use LLDB, and keep notes (state tables, memory ladders) in their notebooks.
+of programming worksheets with question banks, for beginner students who are Telugu
+speakers learning in English. Most tasks are C and Linux; later tasks branch into Python.
+Tasks are hands-on: students run commands, compile programs, use LLDB, and keep notes
+(state tables, memory ladders) in their notebooks.
 
 **Scope rule:** this project is only `june1st2026`. The related paper-first project lives
 in `aikaryashala/foundations` and is handled in its own sessions — never edit it from here.
@@ -25,7 +26,18 @@ docs/
 ```
 
 Current tasks: 3 (paths), 4 (compilation intermediate files), 5 (Linux commands),
-6 (LLDB level-1), 7 (pipes & redirections), 8 (C functions), 9 (call stack with LLDB).
+6 (LLDB level-1), 7 (pipes & redirections), 8 (C functions), 9 (call stack with LLDB),
+10 (bitwise operators), 11 (adding to an address), 12 (CS50 tools setup),
+13 (check, style & submit), 14 (address variables), 15 (bytes & encodings),
+16 (reading & writing files), 21 (Git internals), 30 (Python `input()` and types).
+
+Numbering follows the order tasks were set for students, not creation order (21 was
+written after 30) — the next task is **not** necessarily "highest + 1"; ask which
+number to use.
+
+Not every task is the full six-file shape: **8** and **13** are worksheet-only, **12** is
+a screenshot-based reference page (no markdown), and **10** carries an extra
+`_extra_questions` / `_extra_answers` bank alongside its normal one.
 
 ## The shared viewer assets (refactored 2026-07-21)
 
