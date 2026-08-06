@@ -21,8 +21,7 @@ docs/
 │   ├── <base>.html       ← worksheet viewer
 │   ├── <base>_questions.md / .html
 │   └── <base>_answers.md / .html
-├── june_overview_slides/  ← presentations (own style, not viewers)
-└── env_var_slides/        ← presentations (own style, not viewers)
+└── june_overview_slides/  ← presentations (own style, not viewers)
 ```
 
 Current tasks: 3 (paths), 4 (compilation intermediate files), 5 (Linux commands),
