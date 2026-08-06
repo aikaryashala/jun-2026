@@ -13,8 +13,10 @@ in `aikaryashala/foundations` and is handled in its own sessions — never edit 
 
 ```
 docs/
-├── index.html            ← site root; one line per task
+├── index.html            ← batch landing page (hero, learning path, hub cards)
+├── tasks.html            ← the worksheet index; one row per task, grouped by topic
 ├── assets/
+│   ├── site.css          ← shared stylesheet for the HUB pages (index, tasks, slides)
 │   ├── viewer.css        ← shared stylesheet for ALL viewers
 │   └── viewer.js         ← shared fetch-and-render logic for ALL viewers
 ├── taskN/
@@ -89,16 +91,35 @@ is named `-questions-answers.*` because a worksheet-level `-answers.md` already 
   to by debugger output, expected program output. Students run on a Linux VM
   (WSL on Windows) — use Linux-style paths/addresses in sample transcripts, not macOS.
 
-## index.html format
+## The hub pages (index.html, tasks.html, slides)
 
-One `<li>` per task — worksheet link, then small `[Questions]` and `[ans]` links
-(class `q`) on the same line:
+Three hand-written pages — not viewers — sharing `assets/site.css`, which reuses the
+same tokens as `viewer.css` so the front door looks like the worksheets:
+
+- **`index.html`** — the batch landing page served at the site root. Hero (batch label,
+  student/team/worksheet counts), a **"Now on"** banner naming the task the batch is
+  currently working through, a **learning path** of topic chips linking to `tasks.html`
+  anchors, and three hub cards. Two things go stale and are marked with comments in the
+  file: the `BRANDING` lines and the `WHERE WE ARE NOW` block — update the "Now on"
+  link whenever the batch moves to a new task.
+- **`tasks.html`** — the worksheet index (this was the old `index.html`; renamed
+  2026-08-06 so the root could become the batch page). Tasks are grouped into six
+  `.group` blocks with stable anchor ids the path chips link to: `#linux`, `#c`,
+  `#memory`, `#debug`, `#tools`, `#python`.
+- **`june_overview_slides/index.html`** — the team decks.
+
+One `<li>` per task inside the right group's `.tasklist`. The task number lives in its
+own `.num` span, so the link text is the title alone (no "Task N -" prefix):
 
 ```html
-<li><a href="taskN/<base>.html">Task N - <Title></a>
-    <a class="q" href="taskN/<base>_questions.html">[Questions]</a>
-    <a class="q" href="taskN/<base>_answers.html">[ans]</a></li>
+<li><span class="num">Task N</span>
+    <a class="title" href="taskN/<base>.html"><Title></a>
+    <a class="q" href="taskN/<base>_questions.html">Questions</a>
+    <a class="q" href="taskN/<base>_answers.html">ans</a></li>
 ```
+
+For a worksheet-only or reference task, replace the two `.q` links with
+`<span class="only">worksheet only</span>` (or `reference`).
 
 ## Serving locally
 
@@ -117,7 +138,10 @@ python3 -m http.server 8000
    re-verify all facts/arithmetic by hand.
 3. Copy one slim viewer HTML per file; update title, body class, brand, chips,
    status text. Keep `.html` and `.md` basenames identical.
-4. Add the task's `<li>` to `docs/index.html`.
+4. Add the task's `<li>` to the right topic group in `docs/tasks.html`, and update the
+   group's task-number list in the `docs/index.html` path chip (e.g. `tasks 3, 5, 7`).
+   If this is the task the batch now moves to, update the "Now on" block in
+   `docs/index.html` too.
 5. Serve `docs/` and click all three links; confirm each renders and the browser-tab
    title matches the md's `# Title`.
 

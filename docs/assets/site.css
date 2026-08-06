@@ -1,0 +1,278 @@
+/* Shared stylesheet for the hub pages — index.html (batch home), tasks.html
+   (worksheet index) and june_overview_slides/index.html.
+
+   Deliberately reuses the same design tokens as viewer.css (graph-paper ground,
+   floating sheet, Space Grotesk / IBM Plex / JetBrains Mono, blue accent) so the
+   front door reads as the same site as the worksheets. viewer.css styles rendered
+   markdown; this file styles hand-written page furniture. Keep them separate. */
+
+:root{
+  --bg:#F2F5FA;
+  --card:#FFFFFF;
+  --ink:#16202E;
+  --muted:#586375;
+  --accent:#1F5FE0;
+  --accent-soft:#ECF2FE;
+  --amber:#C8791B;
+  --rule:#E5EAF2;
+  --sans:'IBM Plex Sans','Noto Sans Telugu',system-ui,-apple-system,sans-serif;
+  --display:'Space Grotesk','Noto Sans Telugu',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.7;
+  background-color:var(--bg);
+  background-image:
+    linear-gradient(rgba(31,95,224,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31,95,224,.045) 1px, transparent 1px);
+  background-size:28px 28px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ---------- sticky bar (same shape as the viewers') ---------- */
+.topbar{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; gap:18px;
+  flex-wrap:wrap;
+  padding:11px clamp(16px,4vw,40px);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:saturate(140%) blur(8px);
+  -webkit-backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.brand{
+  font-family:var(--mono);
+  font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); white-space:nowrap;
+}
+.navlinks{
+  display:flex; align-items:center; gap:8px;
+  margin-left:auto; flex-wrap:wrap;
+}
+.navlinks a{
+  font-family:var(--mono); font-size:.8rem; font-weight:500;
+  color:var(--accent); background:var(--accent-soft);
+  border:1px solid #D5E2FB; border-radius:6px;
+  padding:3px 9px; text-decoration:none; white-space:nowrap;
+}
+.navlinks a:hover{color:#fff; background:var(--accent); border-color:var(--accent);}
+
+main{padding:clamp(20px,4vw,52px) 16px 96px;}
+.wrap{max-width:940px; margin:0 auto;}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:14px;
+  box-shadow:0 1px 2px rgba(22,32,46,.04), 0 18px 40px -28px rgba(22,32,46,.28);
+  padding:clamp(28px,5vw,56px);
+}
+.eyebrow{
+  font-family:var(--mono); font-size:.74rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 .9em;
+}
+.hero h1{
+  font-family:var(--display); font-weight:700;
+  font-size:clamp(2rem,4.6vw,3rem);
+  line-height:1.14; letter-spacing:-.02em;
+  margin:0 0 .25em;
+}
+.tagline{
+  font-size:clamp(1.05rem,2vw,1.22rem);
+  color:var(--muted); margin:0 0 1.5em; max-width:44ch;
+}
+.facts{
+  display:flex; flex-wrap:wrap; gap:10px 26px;
+  padding-top:1.4em; border-top:1px solid var(--rule);
+  list-style:none; margin:0;
+}
+.facts li{display:flex; flex-direction:column; gap:2px;}
+.facts b{
+  font-family:var(--display); font-size:1.22rem; font-weight:600; line-height:1;
+}
+.facts span{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+}
+
+/* ---------- "where we are now" banner ---------- */
+.now{
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  margin-top:1.8em; padding:14px 18px;
+  background:var(--accent-soft);
+  border:1px solid #D5E2FB;
+  border-left:4px solid var(--accent);
+  border-radius:10px;
+}
+.now .label{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--accent);
+}
+.now a{
+  font-family:var(--display); font-weight:600; font-size:1.05rem;
+  color:var(--ink); text-decoration:none;
+  border-bottom:2px solid #Bcd2f7;
+}
+.now a:hover{border-bottom-color:var(--accent);}
+
+/* ---------- section headings ---------- */
+.section{margin-top:clamp(38px,6vw,64px);}
+.section > h2{
+  font-family:var(--mono); font-size:.74rem;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 1.1em; padding-bottom:.9em;
+  border-bottom:1px solid var(--rule);
+}
+
+/* ---------- the learning path ---------- */
+/* Chips wrap freely; the connecting arrow hangs off the LEFT of each chip rather
+   than sitting between them, so a wrap can never strand an arrow at a line end —
+   it just leads the continuing chip on the next line. */
+.path{
+  display:flex; align-items:center; gap:10px 8px;
+  flex-wrap:wrap;
+}
+.path a{
+  position:relative;
+  display:flex; flex-direction:column; gap:1px;
+  font-family:var(--mono); font-size:.84rem; font-weight:500;
+  color:var(--accent); background:var(--accent-soft);
+  border:1px solid #D5E2FB; border-radius:8px;
+  padding:7px 12px; text-decoration:none;
+}
+.path a + a{margin-left:22px;}
+.path a + a::before{
+  content:"→"; position:absolute; left:-19px; top:50%;
+  transform:translateY(-50%);
+  color:#A9B6C9; font-size:.9rem; user-select:none;
+}
+.path a small{
+  font-size:.68rem; color:var(--muted); letter-spacing:.02em;
+}
+.path a:hover{background:var(--accent); border-color:var(--accent); color:#fff;}
+.path a:hover small{color:rgba(255,255,255,.82);}
+
+/* ---------- hub cards ---------- */
+.cards{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.card{
+  display:block; text-decoration:none; color:inherit;
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:12px;
+  padding:22px 24px 24px;
+  box-shadow:0 1px 2px rgba(22,32,46,.04);
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+  border-color:#C9D8F6;
+  box-shadow:0 1px 2px rgba(22,32,46,.04), 0 14px 30px -20px rgba(22,32,46,.4);
+}
+.card .kicker{
+  font-family:var(--mono); font-size:.68rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--accent);
+  display:block; margin-bottom:.7em;
+}
+.card h3{
+  font-family:var(--display); font-weight:600; font-size:1.18rem;
+  margin:0 0 .4em; letter-spacing:-.01em;
+}
+.card p{margin:0; font-size:.94rem; color:var(--muted); line-height:1.55;}
+.card .go{
+  display:inline-block; margin-top:1em;
+  font-family:var(--mono); font-size:.8rem; color:var(--accent);
+}
+@media (prefers-reduced-motion:reduce){
+  .card{transition:none;}
+  .card:hover{transform:none;}
+}
+
+/* ---------- task index (tasks.html) ---------- */
+.group{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:12px;
+  padding:8px 6px;
+  box-shadow:0 1px 2px rgba(22,32,46,.04);
+  margin-bottom:22px;
+}
+.group > h2{
+  font-family:var(--display); font-weight:600; font-size:1.06rem;
+  margin:14px 18px 4px; padding-left:12px;
+  border-left:4px solid var(--accent);
+  scroll-margin-top:72px;
+}
+.group > p{
+  margin:0 18px 12px 34px;
+  font-size:.9rem; color:var(--muted);
+}
+.tasklist{list-style:none; margin:0; padding:0;}
+.tasklist li{
+  display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+  padding:9px 18px; border-top:1px solid var(--rule);
+}
+.tasklist li:hover{background:#FAFBFD;}
+.num{
+  font-family:var(--mono); font-size:.76rem; color:var(--muted);
+  min-width:4.2em; flex:none;
+}
+.tasklist .title{
+  color:var(--ink); text-decoration:none; font-weight:500;
+  border-bottom:1px solid transparent; margin-right:auto;
+}
+.tasklist .title:hover{color:var(--accent); border-bottom-color:#Bcd2f7;}
+.q{
+  font-family:var(--mono); font-size:.74rem; white-space:nowrap;
+  color:var(--accent); text-decoration:none;
+  background:var(--accent-soft); border:1px solid #D5E2FB;
+  border-radius:5px; padding:1px 7px; flex:none;
+}
+.q:hover{color:#fff; background:var(--accent); border-color:var(--accent);}
+.only{
+  font-family:var(--mono); font-size:.72rem; color:var(--muted);
+  white-space:nowrap; flex:none;
+}
+
+/* ---------- plain link lists (slides page) ---------- */
+.linklist{list-style:none; margin:0; padding:0;}
+.linklist li{
+  display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+  padding:11px 18px; border-top:1px solid var(--rule);
+}
+.linklist li:first-child{border-top:0;}
+.linklist a{
+  color:var(--ink); text-decoration:none; font-weight:500;
+  border-bottom:1px solid transparent;
+}
+.linklist a:hover{color:var(--accent); border-bottom-color:#Bcd2f7;}
+.note{font-family:var(--mono); font-size:.74rem; color:var(--muted);}
+
+footer{
+  max-width:940px; margin:clamp(40px,6vw,72px) auto 0;
+  padding-top:20px; border-top:1px solid var(--rule);
+  font-family:var(--mono); font-size:.78rem; color:var(--muted);
+}
+footer a{color:var(--accent); text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px;}
+
+@media (max-width:560px){
+  body{font-size:16px;}
+  .brand{display:none;}
+  .navlinks{margin-left:0;}
+  .num{min-width:0;}
+}

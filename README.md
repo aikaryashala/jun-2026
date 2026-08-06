@@ -39,7 +39,13 @@ Numbering follows the order the tasks were set for students, so there is a gap b
 
 ## How the site works
 
-Each page is a markdown file rendered in the browser by a slim HTML viewer. Since the
+The site root, `docs/index.html`, is the batch landing page: who the batch is, a
+learning path across the six topic groups, a "Now on" pointer to the task currently
+being worked through, and links onward. `docs/tasks.html` is the worksheet index —
+every task grouped by topic with its question bank and answer key. These hub pages
+share `docs/assets/site.css`.
+
+Each task page is a markdown file rendered in the browser by a slim HTML viewer. Since the
 2026-07 refactor, all viewers share two common files:
 
 - `docs/assets/viewer.css` — the whole look; the body class (`worksheet` / `questions` /

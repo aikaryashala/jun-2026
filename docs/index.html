@@ -3,41 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Try Some Tasks</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 2rem;
-    }
-    ul {
-      line-height: 1.8;
-    }
-    a.q {
-      font-size: 0.85em;
-      white-space: nowrap;
-    }
-  </style>
+  <title>AI Karyashala — Batch 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Telugu:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <h1>Try Some Tasks</h1>
-  <ul>
-    <li><a href="task3/relative-vs-absolute-paths.html">Task 3 - Relative vs Absolute Paths</a> <a class="q" href="task3/relative-vs-absolute-paths-questions.html">[Questions]</a> <a class="q" href="task3/relative-vs-absolute-paths-questions-answers.html">[ans]</a></li>
-    <li><a href="task4/compilation_intermediate_files_worksheet.html">Task 4 - Compilation Intermediate Files Worksheet</a> <a class="q" href="task4/compilation_intermediate_files_questions.html">[Questions]</a> <a class="q" href="task4/compilation_intermediate_files_answers.html">[ans]</a></li>
-    <li><a href="task5/exploring_linux_commands_worksheet.html">Task 5 - Exploring Linux Commands - The Shell Toolbox</a> <a class="q" href="task5/exploring_linux_commands_questions.html">[Questions]</a> <a class="q" href="task5/exploring_linux_commands_answers.html">[ans]</a></li>
-    <li><a href="task6/debugging_c_lldb_level1.html">Task 6 - Debugging C Code Using Clang Debugger (LLDB) - Level-1</a> <a class="q" href="task6/debugging_c_lldb_level1_questions.html">[Questions]</a> <a class="q" href="task6/debugging_c_lldb_level1_answers.html">[ans]</a></li>
-    <li><a href="june_overview_slides/index.html">June Overview Presentations</a></li>
-    <li><a href="task7/pipes_and_redirections_worksheet.html">Task 7 - Pipes and Redirections - Streams in the Shell</a> <a class="q" href="task7/pipes_and_redirections_questions.html">[Questions]</a> <a class="q" href="task7/pipes_and_redirections_answers.html">[ans]</a></li>
-    <li><a href="task8/c_functions_worksheet.html">Task 8 - Functions in C - Declare, Define, Call</a></li>
-    <li><a href="task9/call_stack_frames_lldb.html">Task 9 - The Call Stack with LLDB - Frames, Return Addresses, and Leftovers</a> <a class="q" href="task9/call_stack_frames_lldb_questions.html">[Questions]</a> <a class="q" href="task9/call_stack_frames_lldb_answers.html">[ans]</a></li>
-    <li><a href="task10/bitwise_operators_worksheet.html">Task 10 - Bitwise Operators - Working the Bits</a> <a class="q" href="task10/bitwise_operators_questions.html">[Questions]</a> <a class="q" href="task10/bitwise_operators_answers.html">[ans]</a> <a class="q" href="task10/bitwise_operators_extra_questions.html">[Extra Questions]</a> <a class="q" href="task10/bitwise_operators_extra_answers.html">[extra ans]</a></li>
-    <li><a href="task11/array_addresses_worksheet.html">Task 11 - Adding to an Address - Discover the Rule</a> <a class="q" href="task11/array_addresses_questions.html">[Questions]</a> <a class="q" href="task11/array_addresses_answers.html">[ans]</a></li>
-    <li><a href="task12/cs50_tools_setup.html">Task 12 - Setting Up and Using CS50 Tools</a></li>
-    <li><a href="task13/check_style_submit_worksheet.html">Task 13 - Check, Style &amp; Submit - Every Program</a></li>
-    <li><a href="task14/address_variables_worksheet.html">Task 14 - Address Variables - Store an Address, Reach the Box</a> <a class="q" href="task14/address_variables_questions.html">[Questions]</a> <a class="q" href="task14/address_variables_answers.html">[ans]</a></li>
-    <li><a href="task15/bytes_and_encodings_worksheet.html">Task 15 - Bytes Become Meaning - Colours, Characters &amp; Encodings</a> <a class="q" href="task15/bytes_and_encodings_questions.html">[Questions]</a> <a class="q" href="task15/bytes_and_encodings_answers.html">[ans]</a></li>
-    <li><a href="task16/reading_writing_files_worksheet.html">Task 16 - Reading &amp; Writing Files - Raw Bytes vs Readable Text</a> <a class="q" href="task16/reading_writing_files_questions.html">[Questions]</a> <a class="q" href="task16/reading_writing_files_answers.html">[ans]</a></li>
-    <li><a href="task21/git_internals_worksheet.html">Task 21 - Git Internals - Inside the .git Folder</a> <a class="q" href="task21/git_internals_questions.html">[Questions]</a> <a class="q" href="task21/git_internals_answers.html">[ans]</a></li>
-    <li><a href="task30/python_input_and_types_worksheet.html">Task 30 - Python input() and Types - Strings, Numbers &amp; How print Lays Them Out</a> <a class="q" href="task30/python_input_and_types_questions.html">[Questions]</a> <a class="q" href="task30/python_input_and_types_answers.html">[ans]</a></li>
-    </ul>
+
+  <header class="topbar">
+    <!-- BRANDING: batch label. Change here and in <title> + the hero block below. -->
+    <span class="brand">AI Karyashala · Batch 2</span>
+    <nav class="navlinks">
+      <a href="tasks.html">Worksheets</a>
+      <a href="june_overview_slides/index.html">Presentations</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <section class="hero">
+        <!-- BRANDING: the four lines below are the whole identity of the page. -->
+        <p class="eyebrow">Batch 2 · Started June 2026</p>
+        <h1>AI Karyashala</h1>
+        <p class="tagline">Foundations of software development — learnt by doing, on a
+          real Linux machine.</p>
+
+        <ul class="facts">
+          <li><b>13</b><span>Students</span></li>
+          <li><b>5</b><span>Teams</span></li>
+          <li><b>16</b><span>Worksheets</span></li>
+          <li><b>6</b><span>Topics</span></li>
+        </ul>
+
+        <!-- ===== WHERE WE ARE NOW =====================================
+             Update these two lines as the batch moves to the next task:
+             the href points at the task's worksheet, the text names it. -->
+        <p class="now">
+          <span class="label">Now on</span>
+          <a href="task21/git_internals_worksheet.html">Task 21 — Git Internals: Inside the .git Folder</a>
+        </p>
+        <!-- ============================================================ -->
+      </section>
+
+      <section class="section">
+        <h2>The path</h2>
+        <nav class="path">
+          <a href="tasks.html#linux">Linux &amp; the Shell<small>tasks 3, 5, 7</small></a>
+          <a href="tasks.html#c">C &amp; Compilation<small>tasks 4, 8</small></a>
+          <a href="tasks.html#memory">Memory &amp; Addresses<small>tasks 10, 11, 14–16</small></a>
+          <a href="tasks.html#debug">Debugging with LLDB<small>tasks 6, 9</small></a>
+          <a href="tasks.html#tools">Tools &amp; Workflow<small>tasks 12, 13, 21</small></a>
+          <a href="tasks.html#python">Python<small>task 30</small></a>
+        </nav>
+      </section>
+
+      <section class="section">
+        <h2>Start here</h2>
+        <div class="cards">
+
+          <a class="card" href="tasks.html">
+            <span class="kicker">Worksheets</span>
+            <h3>All tasks</h3>
+            <p>Every worksheet, grouped by topic, each with its question bank and
+              answer key.</p>
+            <span class="go">Open the index →</span>
+          </a>
+
+          <a class="card" href="task12/cs50_tools_setup.html">
+            <span class="kicker">Before you begin</span>
+            <h3>Set up your tools</h3>
+            <p>Install and use the CS50 tools on your Linux VM — the setup every later
+              task assumes.</p>
+            <span class="go">Set up →</span>
+          </a>
+
+          <a class="card" href="june_overview_slides/index.html">
+            <span class="kicker">Teams</span>
+            <h3>Team presentations</h3>
+            <p>The five June overview decks, one from each team in this batch.</p>
+            <span class="go">View decks →</span>
+          </a>
+
+        </div>
+      </section>
+
+      <footer>
+        AI Karyashala · Batch 2 · June 2026 —
+        <a href="tasks.html">worksheets</a> ·
+        <a href="https://github.com/aikaryashala/jun-2026">source</a>
+      </footer>
+
+    </div>
+  </main>
+
 </body>
 </html>
