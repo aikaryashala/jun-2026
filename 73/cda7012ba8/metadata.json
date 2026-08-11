@@ -1,0 +1,34 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "73cda7012ba8",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 8,
+  "files_touched": [
+    "docs/index.html",
+    "docs/task22/pull_requests_questions.html",
+    "docs/task22/pull_requests_questions.md",
+    "docs/task22/pull_requests_reference.html",
+    "docs/task22/pull_requests_reference.md",
+    "docs/task31/python_collections_questions.html",
+    "docs/task31/python_collections_questions.md",
+    "docs/task31/python_collections_worksheet.html",
+    "docs/task31/python_collections_worksheet.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/73/cda7012ba8/0/metadata.json",
+      "transcript": "/73/cda7012ba8/0/full.jsonl",
+      "compact_transcript": "/73/cda7012ba8/0/transcript.jsonl",
+      "content_hash": "/73/cda7012ba8/0/content_hash.txt",
+      "prompt": "/73/cda7012ba8/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 161,
+    "cache_creation_tokens": 191016,
+    "cache_read_tokens": 12022386,
+    "output_tokens": 125642,
+    "api_call_count": 86
+  }
+}
