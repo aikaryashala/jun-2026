@@ -1,0 +1,63 @@
+/create-task as task22 for the topic on 'Pull Request', Cover all the fundamentals regarding Pull Request.
+
+---
+
+Web UI only now, later task we can include 'gh command'
+
+---
+
+Just keep it for theory part only, for reading material, no need of practice. Which I have already made the students do.
+
+---
+
+Just keep it for theory part only, for reading material, no need of practice. Which I have already made the students do. This must act like a reference material to refer for understand the over all what is happening. Practically they already know how to create PR and review a PR and accept it.
+
+---
+
+1. wanted, 2. keep it, 3. fine.
+
+---
+
+/create-task task31 topic "Built-in Collection Type in python" along with 'for-in' controll statement in python.First speak in general term like: In general programming terms, a collection is any container object that groups multiple items together. 
+
+ In Python, talk about the standard built-in containers. List, Tuple, Set, Dictionaries.
+
+ Just at the end mention that there is pythons built-in module 'collections', which is different.
+
+ Now comming to details.
+ Make them guess the output of code samples, for these data types. Using 'for-in', while like loops.
+
+ Keep the values limited to int and strings. 
+
+ Later expose them where some of these container types are as an element.
+ This must lead us to the description of JSON later.
+
+ Next tasks32 will be about strings, task33 will be about JSON, in a more general terms how it is used accross many places and how it handled in Python language.
+
+---
+
+Also keep speaking in general terms like Ordered-Collection, Unordered-Collection, refer from other languages like C, where it is appropriate.
+
+---
+
+g
+
+---
+
+Add some error code as well so the students learn about those error messages, when handling Collection data types built-in python
+
+---
+
+Now that students are ready with collections. Need to make them aware of different contexts in which these are used. Like when you query a database, you might get a collection of dictionaries. When you get an order you get a list of items. And what are the other scenarious in Backend development and AI-Native development, we see these collections. First list the scenarios, then we can create some context specific problems.
+
+---
+
+conditions are already covered, in python and students know about them. you can use if/elif/else.
+
+---
+
+conditions are already covered, in python and students know about them. you can use if/elif/else. add them as extra question bank
+
+---
+
+After every iteration in docs/task31/python_collections_worksheet.md add 2 coding question which needs all the things that are covered in that iteration. At the end of this worksheet, need to have 2 real world coding problems which uses all the concepts covered in the worksheet. Only questions, no need of answers.
