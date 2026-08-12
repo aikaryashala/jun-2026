@@ -96,6 +96,12 @@ A C array is **homogeneous** — every element must be the same type. A Python l
 
 **Takeaway to say out loud:** "A list is one name holding many elements — and unlike a C array, it knows its own length."
 
+**Write it yourself**
+
+**W1.1** Make a list holding the names of five cities. Print the whole list, then its type, then how many elements it has. Add two more lines printing the type of the list itself and the type of its first element — and write one sentence in your notebook saying why those two types are different.
+
+**W1.2** Make a list holding one student's roll number, name and city. Print the list and its length, then print the type of each of the three elements. In your notebook, write down the one thing about this list that a C array could not have done.
+
 ---
 
 ## Iteration 2 — `for … in` walks the collection
@@ -145,6 +151,12 @@ The last line is the surprise: **`m` still exists after the loop, holding `77`.*
 Notice too what you did **not** have to write: no counter, no length, no `i = i + 1`, no test. You said "for each mark in marks", and that was the whole thing. Iteration 5 shows you the version where you do it all by hand.
 
 **Takeaway to say out loud:** "`for m in marks:` puts each element into `m` in turn — and `m` survives the loop."
+
+**Write it yourself**
+
+**W2.1** Make a list of four subject names. Use `for … in` to print each one on its own line. After the loop has finished, print the loop variable on a line of its own, and write in your notebook what it holds and why.
+
+**W2.2** Make a list of five ints. Write a loop that prints each element **twice**, on two separate lines. Before running it, write down how many lines of output you expect — then check.
 
 ---
 
@@ -238,6 +250,12 @@ Be consistent: four spaces per level, spaces not tabs. `nano` inserts spaces whe
 
 **Takeaway to say out loud:** "Indentation is not decoration in Python — it *is* the block."
 
+**Write it yourself**
+
+**W3.1** Make a list of three names. Write **two** programs that differ only in the indentation of one line: the first prints `-----` after every name, the second prints it once after the whole list. Run both and write down the number of output lines from each.
+
+**W3.2** Take a working `for` loop and break it twice, on purpose. First delete the colon, run it, and copy the exact error name and message into your notebook. Put the colon back, then remove the indentation of the body, run it, and copy that error too. You should end up with two different error names written down.
+
 ---
 
 ## Iteration 4 — Position: `[0]`, `[-1]`, and off the end
@@ -289,6 +307,12 @@ print(marks[1])
 looks identical to C's `printf("%d\n", marks[1]);` — but the machinery underneath is not the same thing at all. Task 11 showed that in C, `marks[1]` is **address arithmetic**: the position is a distance in bytes from where the array starts, worked out and followed. That is also why C will cheerfully let you read `marks[3]` — it just computes another address and reads whatever is lying there, giving you a garbage number or a crash, with no complaint. Python's `[1]` is a **lookup** on an object that knows how many elements it has, which is why it can stop you with a clear `IndexError` instead. **Same notation, different machinery, very different behaviour when you get it wrong.**
 
 **Takeaway to say out loud:** "Indexes start at 0 and stop at `len - 1` — and Python tells me when I go past the end."
+
+**Write it yourself**
+
+**W4.1** Make a list of six marks. On separate lines print: the first element, the third element, the last element using a negative index, the last element again using `len`, and the length itself. Then add one more line asking for the element one position past the end, run it, and copy the exact error into your notebook.
+
+**W4.2** For a list of length four, write down **every** valid index in your notebook first — both the positive ones and the negative ones. Then write a program that prints each element twice on the same line, once reached by its positive index and once by its negative index.
 
 ---
 
@@ -382,6 +406,12 @@ So `for i in range(len(marks))` is the counted loop with the start, test and ste
 
 **Takeaway to say out loud:** "`while` makes me write the start, the test and the step — `for … in` writes all three for me."
 
+**Write it yourself**
+
+**W5.1** Make a list of five names. Print each name with its position using a `while` loop, writing the start, the test and the step yourself. Then write the same program again using `for i in range(len(...))`, and confirm the two outputs are identical character for character.
+
+**W5.2** Take your `while` loop from W5.1 and change `<` to `<=`. Run it. Write down how many lines printed before it stopped, the exact error, and the value `i` had held when it failed.
+
 ---
 
 ## Iteration 6 — A list can be changed
@@ -423,6 +453,12 @@ Two different kinds of change, and both are worth naming.
 Keep this property in mind — **mutable** — because the next container is defined by not having it.
 
 **Takeaway to say out loud:** "A list is mutable: I can replace an element, and I can make it longer."
+
+**Write it yourself**
+
+**W6.1** Start with a list of three ints. Print it and its length. Replace the middle element, then print both again. Append two more elements, then print both again. That is six printed lines in total — write down what you expect all six to be before running.
+
+**W6.2** Create an empty list. Then loop over a list of four names and append each one to the new list. Print both lists and both lengths at the end, and write one sentence saying which of the two lists changed during the program.
 
 ---
 
@@ -480,6 +516,12 @@ So a tuple is a list with one ability removed. Why would you ever want that?
 One trap for later. A tuple with a single element needs a trailing comma — `(5,)`, not `(5)` — because plain `(5)` is just the number 5 in ordinary brackets.
 
 **Takeaway to say out loud:** "A tuple is an ordered collection like a list, but immutable — `t[0] = …` is a `TypeError`."
+
+**Write it yourself**
+
+**W7.1** Make a tuple of four ints. Print it, its type, its length, its first element and its last element, then loop over it printing each element. Finally, add a line that tries to change the first element, run it, and copy the exact error into your notebook.
+
+**W7.2** Write one program twice — once storing the data in a list and once in a tuple — using only the operations that work on both. The two versions should print identical output apart from the brackets. In your notebook, list every line you had to leave out of the tuple version.
 
 ---
 
@@ -555,6 +597,12 @@ You can still walk a set with `for … in` — you just cannot rely on the order
 C gives you no set at all. Removing duplicates from a C array means writing the loops yourself, and checking membership means scanning the whole array every time.
 
 **Takeaway to say out loud:** "A set keeps each element once, in no order — so no duplicates, and no `[0]`."
+
+**Write it yourself**
+
+**W8.1** Make a list of eight names in which three are repeated. Build a set from those names by looping and adding each one. Print the set and its length, and write in your notebook how many names disappeared. Then run the same program three times and write down the three orders you get.
+
+**W8.2** Try to print the first element of a set using `[0]`, run it, and copy the exact error. Then write the line that prints the same set in an order that is the same on every run, and say what type that line gives you back.
 
 ---
 
@@ -644,6 +692,12 @@ C gives you no dictionary either. Reaching a value by a string name in C means w
 
 **Takeaway to say out loud:** "A dictionary is key access, not position access — and looping over it plainly gives me the keys."
 
+**Write it yourself**
+
+**W9.1** Build a dictionary holding four named fields about one student. Print the whole dictionary, its type and its length. Print two of the values by their keys. Then look up a key that was never put in, run it, and copy the exact error into your notebook.
+
+**W9.2** Using the same dictionary, write three separate loops: one printing just the keys, one printing just the values, and one printing each key and its value on the same line. Label each loop with a comment saying which of the three walks it is.
+
 ---
 
 ## Iteration 10 — `in` asks whether something is there
@@ -696,6 +750,12 @@ Two words for the same symbol, then. In `for m in marks:` the `in` is part of th
 And a note on speed, since you have seen how C would do this. Checking `82 in marks` on a **list** means Python looking at the elements one by one until it finds a match — exactly the loop you would write in C. Checking `"ravi" in names` on a **set**, or a key in a dictionary, does not scan at all; those containers are built to answer that one question immediately, however many elements they hold. **That is the main reason to choose a set over a list.**
 
 **Takeaway to say out loud:** "`in` gives me `True` or `False` — and on a dictionary it looks at the keys, never the values."
+
+**Write it yourself**
+
+**W10.1** Build a list, a set and a dictionary. For each one, use `in` to test something that is present and something that is absent, printing all six results. Write down in your notebook which of the six printed `True`.
+
+**W10.2** Take your dictionary from W10.1 and print three things: `in` with one of its keys, `in` with one of its values, and `in` with that same value tested against `.values()`. Write one sentence explaining why the middle one is `False`.
 
 ---
 
@@ -814,6 +874,12 @@ Balaji 88
 Written down as **text**, so it can be saved to a file or sent over a network, this exact shape has a name the whole world uses: **JSON**. That is **Task 33**, and you have just built the thing it describes. Task 32 comes first, on strings.
 
 **Takeaway to say out loud:** "An element can be another container — and `data[1]["marks"][0]` is just three lookups, left to right."
+
+**Write it yourself**
+
+**W11.1** Build a list of three lists, each holding three ints. Print the length of the outer list, one whole inner list, and one single int reached by two indexes. Then write a nested loop that prints every int, with a marker line after each inner list finishes.
+
+**W11.2** Build a list of three dictionaries, each holding a student's name and a list of two marks. Print the second student's name, and the third student's first mark. Then write a nested loop that prints every student's name next to each of their marks, one pair per line.
 
 ---
 
@@ -1052,6 +1118,12 @@ Compare with Task 30's `TypeError: can only concatenate str (not "int") to str`.
 
 **Takeaway to say out loud:** "The error name is the category, the message names the culprit — and a crash is safer than a wrong answer."
 
+**Write it yourself**
+
+**W12.1** Write a single file that can trigger five different errors from this iteration, one at a time — keep four of them commented out and uncomment one per run. For each run, copy the error **name** and the **message** into your notebook. Use at least one `AttributeError`, one `unhashable type`, and one `NameError`.
+
+**W12.2** Start from a working program that loops over a dictionary of names to lists of marks and prints each name with its marks. Now break it three times on purpose: once so it raises `AttributeError`, once so it raises `ValueError`, and once so it raises `RuntimeError`. Before each run, write down which error you expect — then check whether you were right.
+
 ---
 
 ## Iteration 13 — Choosing one
@@ -1110,6 +1182,12 @@ import collections
 It contains some extra, specialised containers — `Counter`, `defaultdict`, `deque` and a few others — built on top of the four you learnt today. **That module is a different thing from what this worksheet has meant by "a collection".** Today's word is the general programming term for any container that groups elements; the module is one specific library with a confusingly similar name. You do not need it yet. Just do not be surprised when you see the word doing both jobs.
 
 **Takeaway to say out loud:** "Choose the container whose properties match the data — the choice tells the next reader what the data is."
+
+**Write it yourself**
+
+**W13.1** For each of these five, declare a container in code with two or three sample values in it, and add a comment naming the one property that decided your choice: the months of the year in order; the distinct blood groups in a class; one book's title, author and year; a `(row, seat)` position in a cinema; how many students come from each city.
+
+**W13.2** Take one set of data — the names of six students, three of whom share a city — and store it three different ways: as a list, as a set, and as a dictionary keyed by name. Print all three. In your notebook write, for each, one thing it makes easy and one thing it makes impossible.
 
 ---
 
@@ -1483,6 +1561,75 @@ while i < len(marks):     # test:  <  not  <=
 - Never add or remove elements while a `for … in` is walking the container.
 - Read the error's **name** first, then the type or value its message names.
 - Choose the container whose properties match the data — it tells the next reader what the data is.
+
+---
+
+## Real-World Problems
+
+Two bigger programs to finish on. Unlike everything above, these are **not** predict-the-output — you are building something, and each one needs most of what the worksheet covered: all four containers, `for … in`, indexing, `len`, `in`, nested containers, and reading an error when you get one.
+
+Work in your notebook first. Write down the **shape** of your data before you write a single line of code — which container at each level, and why. Getting that right makes the code short; getting it wrong makes it impossible.
+
+You may use `if` / `elif` / `else`.
+
+---
+
+### R1 — The class marks report
+
+You are writing the little program that prints a school's end-of-term report.
+
+**The data.** Build a container holding six students. For each student you need: their **name**, their **roll number**, their **city**, and their **marks in three subjects**. Several students share a city. Choose the shape yourself — but write down, before you start, what container you are using at the top level, what one student is, and what the three marks are.
+
+**What the program must print**, each part clearly labelled:
+
+1. How many students there are.
+2. Every student's name and roll number, one per line.
+3. For each student, their name followed by their three marks on the same line.
+4. For each student, their name and their **total** across the three subjects.
+5. The name and total of the student with the **highest** total.
+6. The names of all students whose total is 200 or more.
+7. Every **distinct** city, printed in an order that is the same every time you run the program.
+8. How many students come from each city — for example `{'Warangal': 2, 'Hyderabad': 1, ...}`.
+9. The names of the students from each city, grouped — for example `{'Warangal': ['Ravi', 'Balaji'], ...}`.
+10. A lookup built from roll number to student, then used to print the name of one particular roll number without searching the whole list.
+11. The answer to `is roll number 7 in the school?` and `is roll number 99 in the school?`, printed as `True` or `False`.
+
+**Then, in your notebook:**
+
+- Name the container used for each of parts 7, 8, 9 and 10, and say what property of the data made each the right choice.
+- Part 7 needs one extra step that parts 8 and 9 do not. What is it, and what would go wrong without it?
+- Part 5 needs something to compare against before the loop starts. What did you use, and why can it not be `0`?
+
+**Finally, break it on purpose.** Make three separate copies of your program, and in each introduce exactly one bug so it raises `KeyError`, `IndexError` and `TypeError` respectively. Write down the line you changed and the exact message for each.
+
+---
+
+### R2 — The bus route board
+
+You are writing the display board for a small bus station.
+
+**The data.** There are four routes. Each route has a **route number**, a **list of stops in the order the bus visits them**, and a **fare in paise**. Some stops are served by more than one route. Again: decide the shape first and write it down — the order of the stops is not decoration, it is the timetable.
+
+**What the program must print**, each part clearly labelled:
+
+1. How many routes there are.
+2. For each route: its number, its fare, and how many stops it has.
+3. For each route, every stop in order, numbered from 1 (not from 0 — think about how to get that).
+4. The **first** and **last** stop of every route, on one line each.
+5. Every **distinct** stop served by the station, in a repeatable order, and how many there are.
+6. For each route, whether it stops at `Kazipet` — printed as `True` or `False`.
+7. The route numbers of every route that stops at `Kazipet`.
+8. A lookup from route number to that route's list of stops, then used to print the third stop of one route directly.
+9. How many routes serve each stop — for example `{'Kazipet': 3, 'Hanamkonda': 1, ...}`.
+10. The names of every **interchange** — a stop served by more than one route.
+11. Using a container that holds a fixed pair, record the `(route number, stop name)` of the last stop of each route, collect all four, and print them.
+
+**Then, in your notebook:**
+
+- Why must the stops of a route be a **list** and not a set? Give the answer in terms of the container's properties, and say what exactly would be lost.
+- Part 11 asked for a fixed pair. Which container did you use, and what would happen if you tried to put those pairs into a set using a list instead? Try it, and copy the error.
+- Part 5 and part 10 both involve distinct stops, but only one of them can be a plain set. Which, and why does the other need something more?
+- If a new stop is inserted in the middle of a route, which of your eleven answers change, and which do not?
 
 ---
 
