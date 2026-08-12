@@ -31,15 +31,39 @@ Current tasks: 3 (paths), 4 (compilation intermediate files), 5 (Linux commands)
 6 (LLDB level-1), 7 (pipes & redirections), 8 (C functions), 9 (call stack with LLDB),
 10 (bitwise operators), 11 (adding to an address), 12 (CS50 tools setup),
 13 (check, style & submit), 14 (address variables), 15 (bytes & encodings),
-16 (reading & writing files), 21 (Git internals), 30 (Python `input()` and types).
+16 (reading & writing files), 21 (Git internals), 22 (pull requests),
+30 (Python `input()` and types), 31 (Python collections & `for … in`).
+
+Planned next in the Python strand: **32** strings, **33** JSON (general use across
+systems, then how Python handles it). Task 31's last iteration deliberately ends on a
+list-of-dictionaries — the JSON shape — as the bridge into 33.
 
 Numbering follows the order tasks were set for students, not creation order (21 was
 written after 30) — the next task is **not** necessarily "highest + 1"; ask which
 number to use.
 
 Not every task is the full six-file shape: **8** and **13** are worksheet-only, **12** is
-a screenshot-based reference page (no markdown), and **10** carries an extra
-`_extra_questions` / `_extra_answers` bank alongside its normal one.
+a screenshot-based reference page (no markdown), and **10** and **31** each carry an
+extra `_extra_questions` / `_extra_answers` bank alongside the normal one. An extra bank
+**continues the main bank's part letters** rather than restarting at A (task 10's main
+bank ends at C so its extra bank is Part D; task 31's ends at D so its extra bank runs
+E–J).
+
+Task **31**'s extra bank is context-driven rather than syntax-driven: it applies the
+containers to real backend and AI-native scenarios (database rows, orders, permissions,
+chat conversations, tool definitions, token usage, eval results, RAG chunks), organised
+around seven recurring **shapes** — list of dicts, dict, dict of lists, dict of ints,
+dict of dicts, set, tuple. Students already know `if`/`elif`/`else` by this point, so
+counting, grouping and filtering are fair game there even though the worksheet itself
+uses none.
+
+**22** is a different *kind* of page: reading material, not a worksheet. The students had
+already done pull requests by hand, so it explains the mechanism instead of driving
+practice. Its main file is `<base>_reference.md` (not `_worksheet.md`), it has sections
+rather than a/b/c iterations — each closing with a **"Say it out loud"** line instead of
+"Takeaway" — and it carries no practice/self-check section, because the question bank
+does that job. It still uses `<body class="worksheet">` and still ends with New Words.
+Commands in it are illustrations shown with their real output, never "now run this".
 
 ## The shared viewer assets (refactored 2026-07-21)
 
