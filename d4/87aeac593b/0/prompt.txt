@@ -1,0 +1,555 @@
+/create-task as task22 for the topic on 'Pull Request', Cover all the fundamentals regarding Pull Request.
+
+---
+
+Web UI only now, later task we can include 'gh command'
+
+---
+
+Just keep it for theory part only, for reading material, no need of practice. Which I have already made the students do.
+
+---
+
+Just keep it for theory part only, for reading material, no need of practice. Which I have already made the students do. This must act like a reference material to refer for understand the over all what is happening. Practically they already know how to create PR and review a PR and accept it.
+
+---
+
+1. wanted, 2. keep it, 3. fine.
+
+---
+
+/create-task task31 topic "Built-in Collection Type in python" along with 'for-in' controll statement in python.First speak in general term like: In general programming terms, a collection is any container object that groups multiple items together. 
+
+ In Python, talk about the standard built-in containers. List, Tuple, Set, Dictionaries.
+
+ Just at the end mention that there is pythons built-in module 'collections', which is different.
+
+ Now comming to details.
+ Make them guess the output of code samples, for these data types. Using 'for-in', while like loops.
+
+ Keep the values limited to int and strings. 
+
+ Later expose them where some of these container types are as an element.
+ This must lead us to the description of JSON later.
+
+ Next tasks32 will be about strings, task33 will be about JSON, in a more general terms how it is used accross many places and how it handled in Python language.
+
+---
+
+Also keep speaking in general terms like Ordered-Collection, Unordered-Collection, refer from other languages like C, where it is appropriate.
+
+---
+
+g
+
+---
+
+Add some error code as well so the students learn about those error messages, when handling Collection data types built-in python
+
+---
+
+Now that students are ready with collections. Need to make them aware of different contexts in which these are used. Like when you query a database, you might get a collection of dictionaries. When you get an order you get a list of items. And what are the other scenarious in Backend development and AI-Native development, we see these collections. First list the scenarios, then we can create some context specific problems.
+
+---
+
+conditions are already covered, in python and students know about them. you can use if/elif/else.
+
+---
+
+conditions are already covered, in python and students know about them. you can use if/elif/else. add them as extra question bank
+
+---
+
+After every iteration in docs/task31/python_collections_worksheet.md add 2 coding question which needs all the things that are covered in that iteration. At the end of this worksheet, need to have 2 real world coding problems which uses all the concepts covered in the worksheet. Only questions, no need of answers.
+
+---
+
+/create-task task36 I want to understand the following topics in a connected, practical way, using **AI Karyashala** as the context wherever applicable.
+
+### 1. `char` in C and Binary Representation
+
+In C, `char` has `unsigned char` and `signed char` data types, both of which use 1 byte of memory.
+
+For `unsigned char`, all the bits are used to represent the magnitude, so the range is `[0, 255]`.
+
+For `signed char`, the range is `[-128, +127]`. Negative numbers are represented using **2's complement**, which is the **1's complement of the positive number + 1**.
+
+Give examples showing how `-5`, `-15`, and `-128` are represented in memory, step by step.
+
+Create a debugging task in C using:
+
+```c
+signed char num1 = -5;
+signed char num2 = -15;
+signed char num3 = -128;
+```
+
+Show how to inspect these values in the debugger.
+
+Also explain the LLDB commands needed to inspect the memory byte in **binary format**.
+
+---
+
+### 2. Bitwise and Logical Operators in C
+
+List all the **bitwise operators in C** and the **logical operators in C**.
+
+Give **two examples for each operator**, showing the input values, operation, and result.
+
+---
+
+### 3. NAND Gate and NAND2Tetris
+
+Explain the **NAND gate** and why NAND is considered a fundamental building block for digital logic.
+
+Also explain the purpose and learning approach of the course:
+
+[https://nand2tetris.org](https://nand2tetris.org)
+
+Connect the idea of NAND gates and binary representation to how computers are built from the lowest level upward.
+
+---
+
+### 4. Bitmap Representation and Image Masks
+
+Suppose we want to change the background of an image where a person is present in the photo.
+
+One way to represent the person's location is as a list of pixel positions in the image, such as `(i, j)` coordinates in a matrix. This can require a lot of memory.
+
+The same information can be represented as a **bitmap/mask**, where:
+
+* `0` represents background pixels.
+* `1` represents pixels belonging to the person.
+
+Explain how this representation saves memory.
+
+Then explain how the mask can be applied to the original image to remove the background, how the **inverted mask** can be used to create the background, and how the foreground and background images can finally be combined to produce the final image.
+
+---
+
+### 5. N Bytes and Number Representation
+
+We know that one byte can hold:
+
+* Unsigned values from `0` to `(2^8) - 1`
+* Signed values from `-(2^7)` to `+(2^7 - 1)`
+
+Explain the general rule for **N bytes**.
+
+For example, explain why a signed integer using `N` bytes can represent numbers from:
+
+`-(2^(8N-1))` to `+(2^(8N-1) - 1)`
+
+Also explain the corresponding unsigned range.
+
+---
+
+### 6. IPv4 Addressing
+
+An IPv4 address contains **4 bytes**, where each byte can have a value from `[0, 255]`.
+
+Therefore, the total number of possible IPv4 addresses is:
+
+`256^4 = 2^32`
+
+Explain this clearly.
+
+Among these addresses, some ranges are used for private/local networks, some are publicly routable, and some are reserved for special purposes.
+
+List the major categories of IPv4 addresses and their reserved ranges, including:
+
+* Private addresses
+* Loopback
+* Link-local
+* Multicast
+* Broadcast
+* Documentation/example ranges
+* Other important reserved/special-purpose ranges
+
+Explain why these ranges exist and where they are used.
+
+---
+
+### 7. Why IPv6?
+
+As the number of computers, phones, servers, IoT devices, and other devices connecting to the Internet increased, IPv4 address space became insufficient.
+
+Explain why IPv6 was introduced.
+
+Give a short but meaningful description of what IPv6 brings in terms of:
+
+* Address space
+* Scalability
+* Network configuration
+* Routing
+* Security-related capabilities
+* IoT and future connectivity
+* Other important capabilities enabled by IPv6
+
+Explain IPv6 in a way that connects naturally to the IPv4 concepts above.
+
+---
+
+### 8. Accessing a Local Service from Another Network — Tunneling
+
+Suppose a service is running on a machine connected to the **AI Karyashala WiFi**.
+
+A mobile phone connected to the Internet through mobile data, or a device located on another network, cannot directly reach that local service.
+
+Explain why this happens.
+
+Then explain how tunneling tools such as **ngrok** can be used to expose a local service temporarily to the Internet.
+
+For example, if a mobile app needs to communicate with a service running on a developer's laptop, explain how tunneling can be used during development and testing when the mobile device and laptop are on different networks.
+
+---
+
+### 9. NAT — Network Address Translation
+
+All devices connected to the Internet through the **AI Karyashala WiFi** need a way for response packets to return to the correct device.
+
+Suppose a service is running using:
+
+```bash
+python3 -m http.server
+```
+
+on a **RackNerd server**, and the server is accessible through:
+
+[http://codekaryashala.com](http://codekaryashala.com)
+
+When students connect to this server, the server may see the same public IP address for all students because their devices are accessing the Internet through the same WiFi/router/public Internet connection.
+
+For example, when students access:
+
+[http://codekaryashala.com:8000](http://codekaryashala.com:8000)
+
+the request reaches the server, but the server sees the same public IP address for all students.
+
+Explain how the response can still reach the **correct individual machine**.
+
+Explain **NAT — Network Address Translation** in detail.
+
+Use an example with **three machines on the AI Karyashala network**:
+
+* Machine A
+* Machine B
+* Machine C
+
+Have each machine connect to a different website/server.
+
+Show:
+
+1. Private IP addresses assigned to the three machines.
+2. Their source ports.
+3. The router's public IP address.
+4. How the NAT table is created.
+5. How outgoing packets are translated.
+6. How response packets are translated back.
+7. How the router knows which internal machine should receive each response.
+
+---
+
+### 10. Packet Sniffing in WiFi and Wired Networks
+
+WiFi transmits packets through the air.
+
+Explain whether every machine connected to the same WiFi can actually see and sniff the packets transmitted by other devices.
+
+Explain how packet sniffing works in:
+
+* WiFi networks
+* Wired Ethernet/LAN networks
+
+Explain the role of tools such as **Wireshark** and what can and cannot be observed when traffic is encrypted using HTTPS/TLS.
+
+Keep the explanation focused on legitimate learning, debugging, and network administration.
+
+---
+
+### 11. College Network Architecture
+
+In AI Karyashala, assume there is one location and one WiFi router.
+
+In a college, however, every classroom may have its own WiFi access point or network switch, while the entire college may use a **single broadband Internet connection**.
+
+Explain how this architecture works.
+
+Show how packets from:
+
+* Classroom A
+* Classroom B
+* Classroom C
+
+can all use the same Internet connection while still receiving responses back to the correct machines.
+
+Explain the roles of:
+
+* Access points
+* Switches
+* Routers
+* NAT
+* Private IP addresses
+* Public IP addresses
+
+---
+
+### 12. DHCP
+
+Explain how the **DHCP server** running on the AI Karyashala WiFi router assigns different IP addresses to devices connecting to the network.
+
+For example:
+
+* Laptop → `192.168.1.10`
+* Phone → `192.168.1.11`
+* Another laptop → `192.168.1.12`
+
+Explain the DHCP process step by step, including:
+
+* DHCP Discover
+* DHCP Offer
+* DHCP Request
+* DHCP Acknowledgement
+
+Also explain what additional information DHCP can provide to a client, such as:
+
+* Subnet mask
+* Default gateway
+* DNS server
+* Lease time
+
+---
+
+### 13. Subnet Mask and Default Gateway
+
+Explain **subnet masks** using the AI Karyashala network as the example.
+
+For example, assume:
+
+```text
+IP address:    192.168.1.25
+Subnet mask:   255.255.255.0
+Default gateway: 192.168.1.1
+```
+
+Explain:
+
+1. What the subnet mask means.
+2. How the machine determines whether another IP is on the same local network.
+3. What happens when the destination is on the same network.
+4. What happens when the destination is on another network.
+5. Why the default gateway is needed.
+
+Use simple examples such as:
+
+```text
+192.168.1.20
+192.168.1.50
+8.8.8.8
+```
+
+---
+
+### 14. CDN — Content Delivery Network
+
+Explain in short how a **CDN** works.
+
+Explain its main purpose and why websites use CDNs.
+
+Use an example where a user in Visakhapatnam accesses a website whose origin server is located in another part of the world.
+
+Explain how a CDN can improve:
+
+* Latency
+* Performance
+* Scalability
+* Availability
+* Bandwidth usage
+
+---
+
+### 15. `dig` and `traceroute`
+
+Explain how to use the following commands:
+
+```bash
+dig
+traceroute
+```
+
+Give practical examples.
+
+For `dig`, show how to investigate:
+
+* A domain's IP address
+* A records
+* AAAA records
+* MX records
+* NS records
+
+For `traceroute`, explain how it helps identify the sequence of routers/hops between the local machine and a destination.
+
+Also explain the equivalent command commonly used on Linux/macOS and Windows where applicable.
+
+---
+
+### 16. DNS Resolution
+
+Explain how DNS resolution happens when a user enters:
+
+```text
+https://aikaryashala.com
+```
+
+into a browser.
+
+Explain the complete process, including the roles of:
+
+* Browser cache
+* Operating system DNS cache
+* Recursive DNS resolver
+* Root DNS servers
+* TLD DNS servers
+* Authoritative DNS servers
+
+Then explain how the resulting IP address is used to establish communication with the destination server.
+
+---
+
+### 17. How Packets Are Routed Across the Internet
+
+Explain how a packet travels from a student's laptop on the **AI Karyashala WiFi** to a destination server on the Internet.
+
+Start with:
+
+```text
+Student Laptop
+      ↓
+AI Karyashala WiFi Router
+      ↓
+ACT Fiber Internet
+      ↓
+ISP Network
+      ↓
+Internet Backbone / Other Networks
+      ↓
+Destination Network
+      ↓
+Destination Server
+```
+
+Explain how routers decide where to forward packets.
+
+Explain the role of:
+
+* IP addresses
+* Routing tables
+* Routers
+* Autonomous Systems (AS)
+* BGP
+* ISP networks
+
+---
+
+### 18. From Visakhapatnam to a Server in Amalapuram
+
+AI Karyashala uses **ACT Fiber Internet**.
+
+Suppose a machine in AI Karyashala in **Visakhapatnam** sends a request to a server located in **Amalapuram**.
+
+Explain, at a conceptual level, how the packet travels:
+
+```text
+AI Karyashala
+→ WiFi Router
+→ ACT Fiber
+→ ACT/ISP network
+→ Other networks/routers
+→ Network serving Amalapuram
+→ Destination server
+```
+
+Explain how ACT's network knows where to forward the packet, how other ISPs exchange routing information, and how the packet eventually reaches the server in Amalapuram.
+
+Finally, connect all the concepts together into one coherent end-to-end story:
+
+**DHCP → Private IP → Subnet Mask → Default Gateway → NAT → DNS → Routing → ISP → Internet → Destination Server → Response → NAT → Correct Client**
+
+The explanation should be practical and visual, with packet-flow examples, small tables, IP addresses, ports, and diagrams wherever useful.
+
+---
+
+/create-task task36 char in C has 'unsigned char' and 'signed char' data type, which uses 1 byte of memory. In the case of unsigned, it uses all the bits to represent the magnitude and the range of numbers are [0, 255]. While for signed numbers the range is [-128, +127]. The negative numbers are represented as 2's compliment which is '1's compliment of the number + 1'. So give examples for -5 and -15 and -128 how they are represented in memory. And create a task in Debugger to see the values in debugger in C. What are the commands in lldb to see the memory byte in binary format. code sample can be 'singed char num1 = -5, num2 = -15, num3 = -128;' 
+
+Now list all the bitwise operators in C and logical operators in C, with 2 examples for each operator. 
+
+Regarding NAND gate. And about course of [https://nand2tetris.org](https://nand2tetris.org)
+for example we want change the background of an image where a person is present in the photo. This can be represented as a list of pixel positions in the image like (i, j) in matrix. Which will take lots of memory. The same can be represented as bitmap and list all the background pixels as '0' and pixels with person as '1'.  This is saved in less memory space and to generate the image, the mask can be applied on the original image to remove the pixels in the background. And its inverted mask can be used to create the background and join these two images to get the final image.
+
+Now that a byte can hold 0 to (2 power 8) - 1, and - (2 power (8-1)) to + ((2 power (8-1)) - 1).
+similarly memory with N bytes can hold numbers from - (2 power (n-1)) to + ((2 power (n-1)) - 1).
+
+
+With this understanding. And IPV4 address contains 4 bytes where each byte can have [0, 255] numbers. so (256 power 4) combination of IP addresses are possible. In these some are allocated to the local IP addresses, some are allocated to Public IP address for different categories. What are those categories and what ranges of IP addresses are reserved for what purpose.
+
+
+
+As time passed on the number of computers and devices that want to to connect to the internet have explored. So IPV6 address were allocated. A short description of what IPV6 brings for all the people as part of innovation and capabilities that will be enabled by this version-6 of IP.
+
+
+
+A service running on your machine, which is connected to the WiFi in AI Karayashala cannot be reached by device which is connected to internet through mobile data or from other places. In that case we can use tools like 'Ngrok' which support tunneling. So a mobile app want to use a service running on your machine in that case it can use tunneling style to test, when they are in different network.
+
+
+
+All devices connecting to the internet through AI Karyashala WiFi, needs a way receive the response from the WiFi. A service running using 'python3 -m http.server' on a 'racknerd' server, shows same IP address for all the students connecting to that server which is confirmed as codekaryashala.com. So when students try http://codekaryashala.com:8000 the request is reaching the server, but show all same IP address.
+
+
+
+So for the request's response to reach back to the same machine, the router software in WiFi device needs NAT - Network Address Translation. How is it done? Need examples with 3 machines from AI Karyashala Network. which are using different website to connect and use them.
+
+
+
+The WiFi transmits the packets in the Air, so every machine connected to our Wifi can sense the signal and sniff the packets in the network. How this packet sniffing can be done in WiFi network and in wired network like LAN.
+
+
+
+In AI Karyashala we have one place and one Wifi Router. In colleges every classroom will have a network but the college uses single Broadband connection, so how are the packets routed back to the machine which has requested something from a website.
+
+
+
+Also how does DHCP service on WiFi device in AI Karyashala assigns different IP address to devices connecting to it? With examples explain DHCP server.
+
+
+
+What are these Subnet mask? Default Gateway? Explain with examples in AI Karyashala context that we have described.
+
+
+
+How does CDN's work? In short explain their main purpose.
+
+
+
+How can use 'dig' and 'traceroute' commands?
+
+How does DNS resolution happens? How does packets get routed to the destination?
+
+
+
+AI Karyashala uses ACT Fiber Internet, from the WiFi Router when the packets reach ACT Fiber Servers, from there how does it reach to a server in Amalapuram? We are in VizaG.
+
+---
+
+split into 36 and 37, new network group, recap table is fine
+
+---
+
+use docker
+
+---
+
+use ubuntu 24.04 for docker image
+
+---
+
+task35 contains bits-to-internet.html link to it as a reference material for networking.

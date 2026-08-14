@@ -1,0 +1,41 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "d487aeac593b",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "CLAUDE.md",
+    "docs/index.html",
+    "docs/task35/bits-to-internet.html",
+    "docs/task36/signed_bytes_and_gates_answers.html",
+    "docs/task36/signed_bytes_and_gates_answers.md",
+    "docs/task36/signed_bytes_and_gates_questions.html",
+    "docs/task36/signed_bytes_and_gates_questions.md",
+    "docs/task36/signed_bytes_and_gates_worksheet.html",
+    "docs/task36/signed_bytes_and_gates_worksheet.md",
+    "docs/task37/networking_and_routing_answers.html",
+    "docs/task37/networking_and_routing_answers.md",
+    "docs/task37/networking_and_routing_questions.html",
+    "docs/task37/networking_and_routing_questions.md",
+    "docs/task37/networking_and_routing_worksheet.html",
+    "docs/task37/networking_and_routing_worksheet.md",
+    "docs/tasks.html"
+  ],
+  "sessions": [
+    {
+      "metadata": "/d4/87aeac593b/0/metadata.json",
+      "transcript": "/d4/87aeac593b/0/full.jsonl",
+      "compact_transcript": "/d4/87aeac593b/0/transcript.jsonl",
+      "content_hash": "/d4/87aeac593b/0/content_hash.txt",
+      "prompt": "/d4/87aeac593b/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 319,
+    "cache_creation_tokens": 1647319,
+    "cache_read_tokens": 37286331,
+    "output_tokens": 283382,
+    "api_call_count": 171
+  }
+}

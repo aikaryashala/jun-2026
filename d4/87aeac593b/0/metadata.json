@@ -1,0 +1,181 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "d487aeac593b",
+  "session_id": "7a921323-baf9-4606-b0a5-9ec88bb7e102",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-14T10:26:06.083081Z",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "save_step_count": 3,
+  "files_touched": [
+    "CLAUDE.md",
+    "docs/index.html",
+    "docs/task35/bits-to-internet.html",
+    "docs/task36/signed_bytes_and_gates_answers.html",
+    "docs/task36/signed_bytes_and_gates_answers.md",
+    "docs/task36/signed_bytes_and_gates_questions.html",
+    "docs/task36/signed_bytes_and_gates_questions.md",
+    "docs/task36/signed_bytes_and_gates_worksheet.html",
+    "docs/task36/signed_bytes_and_gates_worksheet.md",
+    "docs/task37/networking_and_routing_answers.html",
+    "docs/task37/networking_and_routing_answers.md",
+    "docs/task37/networking_and_routing_questions.html",
+    "docs/task37/networking_and_routing_questions.md",
+    "docs/task37/networking_and_routing_worksheet.html",
+    "docs/task37/networking_and_routing_worksheet.md",
+    "docs/tasks.html"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "e5764cc66a81",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 319,
+    "cache_creation_tokens": 1647319,
+    "cache_read_tokens": 37286331,
+    "output_tokens": 283382,
+    "api_call_count": 171
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-create-task-2026-08-11T05:29:14.061735Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "create-task"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "996eb666b14b",
+      "timestamp": "2026-08-11T05:29:14.061735Z",
+      "native": {
+        "command": "/create-task"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/create-task",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "prompt-skill-claude-code-create-task-2026-08-11T06:07:22.838846Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "create-task"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "d9235c5ac71c",
+      "timestamp": "2026-08-11T06:07:22.838846Z",
+      "native": {
+        "command": "/create-task"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/create-task",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "prompt-skill-claude-code-create-task-2026-08-14T09:27:40.698624Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "create-task"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "a86c0b9a1476",
+      "timestamp": "2026-08-14T09:27:40.698624Z",
+      "native": {
+        "command": "/create-task"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/create-task",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "prompt-skill-claude-code-create-task-2026-08-14T09:28:43.464898Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "create-task"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "a7e7b569e560",
+      "timestamp": "2026-08-14T09:28:43.464898Z",
+      "native": {
+        "command": "/create-task"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/create-task",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 14
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-14T10:26:05.941157Z",
+    "agent_lines": 6352,
+    "agent_removed": 9,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 6352,
+    "total_lines_changed": 6361,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 820,
+      "user_lines_removed": 0,
+      "agent_lines_added": 1401,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41,
+        "docs/task21/git_internals_answers.html": 39,
+        "docs/task21/git_internals_answers.md": 238,
+        "docs/task30/python_input_and_types_answers.html": 38,
+        "docs/task30/python_input_and_types_answers.md": 207
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 820,
+      "user_lines_removed": 0,
+      "agent_lines_added": 7738,
+      "agent_lines_removed": 6,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41,
+        "docs/task21/git_internals_answers.html": 39,
+        "docs/task21/git_internals_answers.md": 238,
+        "docs/task30/python_input_and_types_answers.html": 38,
+        "docs/task30/python_input_and_types_answers.md": 207
+      }
+    }
+  ]
+}
