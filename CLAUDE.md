@@ -32,7 +32,9 @@ Current tasks: 3 (paths), 4 (compilation intermediate files), 5 (Linux commands)
 10 (bitwise operators), 11 (adding to an address), 12 (CS50 tools setup),
 13 (check, style & submit), 14 (address variables), 15 (bytes & encodings),
 16 (reading & writing files), 21 (Git internals), 22 (pull requests),
-30 (Python `input()` and types), 31 (Python collections & `for … in`).
+30 (Python `input()` and types), 31 (Python collections & `for … in`),
+35 (bits-to-internet reference), 36 (signed bytes, two's complement & gates),
+37 (networking & routing).
 
 Planned next in the Python strand: **32** strings, **33** JSON (general use across
 systems, then how Python handles it). Task 31's last iteration deliberately ends on a
@@ -90,9 +92,13 @@ A viewer page contains only: `<title>`, font + highlight-theme links, the
 **Creating a new viewer:** copy any existing slim viewer and change only: `<title>`,
 body class, brand text, chips, status-line text. Nothing else.
 
-**Legacy exceptions (leave alone):** `task3/relative-vs-absolute-paths.html` and
-`task3/relative-vs-absolute-paths-key.html` are an older standalone design with their
-own inline CSS/JS; they are not on the shared assets. Task3's question-bank answer key
+**Standalone pages (leave alone):** `task3/relative-vs-absolute-paths.html` and
+`task3/relative-vs-absolute-paths-key.html` are an older design with their own inline
+CSS/JS. `task35/bits-to-internet.html` is likewise self-contained — a single 200 KB
+narrative page ("From a Bit to the Internet", 18 sections) that is the **reading
+companion to tasks 36 and 37**, covering the same ground as one continuous story;
+both worksheets link to it and it links to nothing. None of these are on the shared
+assets — do not convert them. Task3's question-bank answer key
 is named `-questions-answers.*` because a worksheet-level `-answers.md` already existed.
 
 ## Content formats
@@ -127,9 +133,11 @@ same tokens as `viewer.css` so the front door looks like the worksheets:
   file: the `BRANDING` lines and the `WHERE WE ARE NOW` block — update the "Now on"
   link whenever the batch moves to a new task.
 - **`tasks.html`** — the worksheet index (this was the old `index.html`; renamed
-  2026-08-06 so the root could become the batch page). Tasks are grouped into six
+  2026-08-06 so the root could become the batch page). Tasks are grouped into seven
   `.group` blocks with stable anchor ids the path chips link to: `#linux`, `#c`,
-  `#memory`, `#debug`, `#tools`, `#python`.
+  `#memory`, `#debug`, `#tools`, `#network`, `#python`. (`#network` was added
+  2026-08-14 for task 37; the `.facts` "Topics" count in `index.html` must match the
+  number of groups.)
 - **`june_overview_slides/index.html`** — the team decks.
 
 One `<li>` per task inside the right group's `.tasklist`. The task number lives in its
