@@ -1,0 +1,29 @@
+add @docs/task32/why_we_should_follow_type_hints_in_python.md to the @docs/tasks.html and @docs/index.html
+
+---
+
+point to the current one in "Now on"
+
+---
+
+now add in folder @task32/ add questions where the code is given and asked to write the type hints for the code sample, containing primarily of collections code samples with max 5 lines. Also add functions signatures as well to write them type hints. Limit the questions to 12 questions. No MCQs only sample code for which code along with type hints must be written.
+
+---
+
+now add in folder @task32/ add questions where the code is given and asked to write the type hints for the code sample, containing primarily of collections code samples with max 5 lines. Also add functions signatures as well to write them type hints. Limit the questions to 12 questions. No MCQs only sample code for which code along with type hints must be written. Also keep two questions where collections embedded into another collection.
+
+---
+
+/create-task task33 on List slicing, for every iteration give 2 questions for students to write, no need to give answers for them. Later in the same worksheet append string slicing concepts as well. in the questions do add some string slicing as well at the end. Primarily focusing on List slicing, later on the same parallel lines add string slicing.
+
+---
+
+It's best to talk about Range as well in Python as part of this slicing.
+
+---
+
+Did we cover range earlier, what are we covering now. If we have covered earlier, just refer to the similaries between range parameters and slice parameters, that's all. If not covered earlier it must be covered.
+
+---
+
+first create the task and update all the required pages. Fix the stale line in CLAUDE.md file.
