@@ -1,0 +1,13 @@
+add @docs/task32/why_we_should_follow_type_hints_in_python.md to the @docs/tasks.html and @docs/index.html
+
+---
+
+point to the current one in "Now on"
+
+---
+
+now add in folder @task32/ add questions where the code is given and asked to write the type hints for the code sample, containing primarily of collections code samples with max 5 lines. Also add functions signatures as well to write them type hints. Limit the questions to 12 questions. No MCQs only sample code for which code along with type hints must be written.
+
+---
+
+now add in folder @task32/ add questions where the code is given and asked to write the type hints for the code sample, containing primarily of collections code samples with max 5 lines. Also add functions signatures as well to write them type hints. Limit the questions to 12 questions. No MCQs only sample code for which code along with type hints must be written. Also keep two questions where collections embedded into another collection.

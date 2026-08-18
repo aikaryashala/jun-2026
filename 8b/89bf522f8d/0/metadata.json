@@ -1,0 +1,84 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "8b89bf522f8d",
+  "session_id": "ba3371c8-170e-4671-b3ee-5f926f0a7d88",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-18T05:21:06.640067Z",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "save_step_count": 3,
+  "files_touched": [
+    "docs/index.html",
+    "docs/task32/why_we_should_follow_type_hints_in_python.html",
+    "docs/task32/why_we_should_follow_type_hints_in_python.md",
+    "docs/task32/why_we_should_follow_type_hints_in_python_questions.html",
+    "docs/task32/why_we_should_follow_type_hints_in_python_questions.md",
+    "docs/tasks.html"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "87369526cb96",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 42,
+    "cache_creation_tokens": 43355,
+    "cache_read_tokens": 974543,
+    "output_tokens": 16839,
+    "api_call_count": 21
+  },
+  "session_metrics": {
+    "turn_count": 3
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-18T05:21:06.628795Z",
+    "agent_lines": 231,
+    "agent_removed": 3,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 231,
+    "total_lines_changed": 234,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 2392,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41,
+        "docs/task21/git_internals_answers.html": 39,
+        "docs/task21/git_internals_answers.md": 238,
+        "docs/task22/pull_requests_answers.html": 39,
+        "docs/task22/pull_requests_answers.md": 228,
+        "docs/task30/python_input_and_types_answers.html": 38,
+        "docs/task30/python_input_and_types_answers.md": 207,
+        "docs/task31/python_collections_answers.html": 41,
+        "docs/task31/python_collections_answers.md": 466,
+        "docs/task31/python_collections_extra_answers.html": 41,
+        "docs/task31/python_collections_extra_answers.md": 586,
+        "docs/task32/why_we_should_follow_type_hints_in_python.md": 171
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2438,
+      "agent_lines_removed": 2
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2439,
+      "agent_lines_removed": 3
+    }
+  ]
+}
