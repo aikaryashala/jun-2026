@@ -1,0 +1,179 @@
+/create-task task34 for use linters, Yes. For the standard you are defining for students, I would separate **linting** from **type checking**:
+
+* **Ruff** → coding style, common errors, imports, unused variables, etc.
+* **Pyright** → type correctness and enforcement of your type-hint discipline.
+
+Ruff supports project configuration through `pyproject.toml` or `ruff.toml`. ([Astral Docs][1])
+
+### 1. Project structure
+
+For a student project:
+
+```text
+my-project/
+├── pyproject.toml
+├── main.py
+└── student.py
+```
+
+Put the rules in `pyproject.toml`.
+
+For example:
+
+```toml
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle
+    "F",      # Pyflakes
+    "I",      # import sorting
+    "B",      # bugbear
+]
+```
+
+Then simply run:
+
+```bash
+ruff check .
+```
+
+Ruff automatically looks for the configuration file in the project hierarchy. ([Astral Docs][1])
+
+You can also check one file:
+
+```bash
+ruff check main.py
+```
+
+And automatically fix supported problems:
+
+```bash
+ruff check . --fix
+```
+
+### 2. Type checking is separate
+
+For your particular rule:
+
+```python
+age: int = 20
+
+age = "twenty"
+```
+
+you want a **type checker**, not just a conventional linter.
+
+For example, with Pyright:
+
+```bash
+pyright .
+```
+
+So your student workflow becomes:
+
+```text
+                 Python Program
+                       │
+              ┌────────┴────────┐
+              ↓                 ↓
+            Ruff             Pyright
+              │                 │
+        Code quality        Type correctness
+        Common errors       Type consistency
+        Imports             Function contracts
+        Style               Data structures
+              │                 │
+              └────────┬────────┘
+                       ↓
+                  Good Python
+```
+
+### 3. The important part for your teaching model
+
+You can make `pyproject.toml` the **coding contract for the entire class/project**.
+
+For example:
+
+```toml
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+```
+
+And then a Pyright configuration can define the type-checking strictness.
+
+Students don't need to remember dozens of commands. They just run:
+
+```bash
+ruff check .
+pyright .
+```
+
+or eventually one project command that runs both.
+
+### 4. IDE integration
+
+In VS Code, Ruff can provide diagnostics while students are editing, and it can use the project's `pyproject.toml`/`ruff.toml` configuration. ([Astral Docs][2])
+
+That means students can get:
+
+```text
+student.py
+
+age: int = 20
+age = "twenty"
+    ^^^^^^^^^
+    Type error
+```
+
+**while writing the code**, rather than discovering it later.
+
+---
+
+### One important distinction
+
+I would teach your students these three terms separately:
+
+| Tool             | Question it answers                    |
+| ---------------- | -------------------------------------- |
+| **Formatter**    | "How should my code look?"             |
+| **Linter**       | "Is my code written properly?"         |
+| **Type checker** | "Are my types consistent and correct?" |
+
+For your **AI-native Python coding standard**, I'd make all three part of the development workflow:
+
+```text
+AI generates code
+       ↓
+Formatter
+       ↓
+Ruff
+       ↓
+Pyright
+       ↓
+Tests
+       ↓
+Commit
+```
+
+That is a very strong workflow for the students you are training because the **type annotations become both a human-readable specification and a machine-checkable constraint for AI-generated code**.
+
+[1]: https://docs.astral.sh/ruff/configuration/?utm_source=chatgpt.com "Configuring Ruff | Ruff"
+[2]: https://docs.astral.sh/ruff/editors/settings/?utm_source=chatgpt.com "Settings | Ruff"
+ First explain in showrt what is the task, then we can use, in this only reference wroksheet, no questions and answer sheets.
+
+---
+
+1. yes, 2. yes
+
+---
+
+add a small bank for 34 as well
+
+---
+
+did you create viewers for task34?

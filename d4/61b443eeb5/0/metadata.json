@@ -1,0 +1,104 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "d461b443eeb5",
+  "session_id": "d4393341-cdff-4408-8e9f-2d01228d2f19",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-18T10:14:30.143335Z",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "save_step_count": 3,
+  "files_touched": [
+    "docs/index.html",
+    "docs/task34/linters_and_type_checkers_questions.html",
+    "docs/task34/linters_and_type_checkers_questions.md",
+    "docs/task34/linters_and_type_checkers_reference.html",
+    "docs/task34/linters_and_type_checkers_reference.md",
+    "docs/tasks.html"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "bb1b49da4ffb",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 76,
+    "cache_creation_tokens": 76145,
+    "cache_read_tokens": 2409396,
+    "output_tokens": 42011,
+    "api_call_count": 38
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-create-task-2026-08-18T08:13:30.256632Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "create-task"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "2713e747a5fc",
+      "timestamp": "2026-08-18T08:13:30.256632Z",
+      "native": {
+        "command": "/create-task"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/create-task",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 4
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-18T10:14:30.117325Z",
+    "agent_lines": 900,
+    "agent_removed": 3,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 900,
+    "total_lines_changed": 903,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 1595,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41,
+        "docs/task31/python_collections_extra_answers.html": 41,
+        "docs/task31/python_collections_extra_answers.md": 586,
+        "docs/task32/why_we_should_follow_type_hints_in_python_answers.html": 41,
+        "docs/task32/why_we_should_follow_type_hints_in_python_answers.md": 259,
+        "docs/task33/slicing_and_ranges_answers.html": 41,
+        "docs/task33/slicing_and_ranges_answers.md": 329
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2259,
+      "agent_lines_removed": 3
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2806,
+      "agent_lines_removed": 3
+    }
+  ]
+}
