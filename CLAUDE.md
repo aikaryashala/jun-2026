@@ -33,12 +33,14 @@ Current tasks: 3 (paths), 4 (compilation intermediate files), 5 (Linux commands)
 13 (check, style & submit), 14 (address variables), 15 (bytes & encodings),
 16 (reading & writing files), 21 (Git internals), 22 (pull requests),
 30 (Python `input()` and types), 31 (Python collections & `for … in`),
+32 (why we follow type hints), 33 (slicing & ranges),
 35 (bits-to-internet reference), 36 (signed bytes, two's complement & gates),
 37 (networking & routing).
 
-Planned next in the Python strand: **32** strings, **33** JSON (general use across
-systems, then how Python handles it). Task 31's last iteration deliberately ends on a
-list-of-dictionaries — the JSON shape — as the bridge into 33.
+Planned next in the Python strand: **strings** (methods and formatting) and **JSON**
+(general use across systems, then how Python handles it) — numbers to be decided when
+they are set. Task 31's last iteration deliberately ends on a list-of-dictionaries —
+the JSON shape — as the bridge into the JSON task.
 
 Numbering follows the order tasks were set for students, not creation order (21 was
 written after 30) — the next task is **not** necessarily "highest + 1"; ask which
@@ -66,6 +68,21 @@ rather than a/b/c iterations — each closing with a **"Say it out loud"** line 
 "Takeaway" — and it carries no practice/self-check section, because the question bank
 does that job. It still uses `<body class="worksheet">` and still ends with New Words.
 Commands in it are illustrations shown with their real output, never "now run this".
+
+**32** is also reading material rather than a worksheet — a short statement of the
+project's Python coding standard. Its main file is plain `<base>.md` (no `_worksheet`
+suffix), it has `##` sections rather than iterations, and it carries no New Words table.
+Its question bank is deliberately unlike the others: **no MCQs at all** — twelve code
+samples, each to be rewritten with the type hints added, in two parts (A collections,
+B function signatures). From **32** onward, sample code across the site carries type
+hints (`marks: list[int] = [...]`).
+
+**33** returns to the full worksheet shape. Note its topic order, which the user set:
+list slicing is the main body (iterations 1–8), then the *same* notation on strings
+(9–11), then `range` as a third parallel (12–14). Task 31 had taught only the
+one-argument `range(n)`, so 33 teaches the two- and three-argument forms but treats the
+half-open rule as already known, referring back rather than re-teaching it. The question
+bank runs A–E, with **D string slicing** and **E range** at the end.
 
 ## The shared viewer assets (refactored 2026-07-21)
 
