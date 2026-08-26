@@ -33,7 +33,7 @@ cd ~/task36
 /* two_readings.c */
 #include <stdio.h>
 
-int main(void)
+int main()
 {
     signed char   s = -5;
     unsigned char u = 251;
@@ -166,7 +166,7 @@ Paper is fine, but you should never take my word for what is in memory. Look.
 /* bytes.c */
 #include <stdio.h>
 
-int main(void)
+int main()
 {
     signed char nums[3] = {-5, -15, -128};
     unsigned char same[3] = {251, 241, 128};
@@ -308,7 +308,7 @@ void bits8(unsigned char v)
     for (int i = 7; i >= 0; i--) printf("%d", (v >> i) & 1);
 }
 
-int main(void)
+int main()
 {
     unsigned char minus5 = 0xFB;   /* the -5 pattern from Iteration 2 */
     unsigned char plus5  = 5;
@@ -360,7 +360,7 @@ And notice what this gives you for free: **subtraction disappears as a separate 
 /* edges.c */
 #include <stdio.h>
 
-int main(void)
+int main()
 {
     signed char   a = 127;
     signed char   b = -128;
@@ -447,7 +447,7 @@ Predict these four lines, then run them:
 /* trap.c */
 #include <stdio.h>
 
-int main(void)
+int main()
 {
     int c = 5, d = 3, e = 4, f = 2;
 
@@ -522,7 +522,7 @@ int AND(int a, int b)  { return NOT(NAND(a, b)); }
 int OR(int a, int b)   { return NAND(NOT(a), NOT(b)); }
 int XOR(int a, int b)  { return AND(OR(a, b), NAND(a, b)); }
 
-int main(void)
+int main()
 {
     printf("a b | NAND NOTa AND OR XOR\n");
     for (int a = 0; a <= 1; a++)
@@ -616,7 +616,7 @@ void bits8(const char *label, unsigned char v)
     printf("   0x%02X\n", v);
 }
 
-int main(void)
+int main()
 {
     unsigned char photo = 0xF0;   /* one row of the original photo  */
     unsigned char beach = 0x99;   /* the same row of a new backdrop */
@@ -709,7 +709,7 @@ Fill this in for 2, 4 and 8 bytes before running anything.
 #include <limits.h>
 #include <stdint.h>
 
-int main(void)
+int main()
 {
     printf("1 byte : %u  %d  %d\n", (unsigned)UCHAR_MAX, SCHAR_MIN, SCHAR_MAX);
     printf("2 bytes: %u  %d  %d\n", (unsigned)USHRT_MAX, SHRT_MIN, SHRT_MAX);
