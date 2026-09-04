@@ -61,7 +61,7 @@ To reason about where interventions are possible, you need the mechanics of a si
 | 3. Forward pass | Vectors flow through N transformer layers. Each layer mixes information across positions (attention) and transforms each position independently (feed-forward). |
 | 4. Logits | The final layer emits one raw score per vocabulary entry — a vector as long as the vocabulary. |
 | 5. Softmax | Scores become a probability distribution summing to 1. |
-| 6. Sample | One token is drawn from that distribution. Temperature, top-k and top-p operate here. |
+| 6. Sample | One token is drawn from that distribution. Top-k and top-p operate here; temperature has already acted, before step 5. |
 | 7. Append and repeat | The chosen token joins the input; the loop runs again until a stop token or length cap. |
 
 Steps 1 through 5 are fully deterministic. Identical input produces identical logits, every time. The only randomness in the entire system enters at step 6.
@@ -115,7 +115,7 @@ And because the transform is exponential, small differences in logit space becom
 
 ## Part 4 — Reshaping the distribution
 
-Three knobs modify the distribution before the draw. All three operate between steps 5 and 6.
+Three knobs shape what gets drawn, but they do not all sit at the same point. Temperature acts on logits, before softmax. Top-k and top-p act on probabilities, after it. The seven-step list treats sampling as a single stage for readability; in practice temperature is applied between steps 4 and 5.
 
 ### Temperature
 
@@ -138,6 +138,28 @@ The two limits are instructive:
 - **T → ∞** — every logit divides down toward zero, all exponentials approach 1, and the distribution becomes uniform across the entire vocabulary. The model's opinion is discarded entirely.
 
 So temperature interpolates between "always take the model's top pick" and "ignore the model."
+
+### Ordering: temperature comes before softmax
+
+The full pipeline is:
+
+```
+logits  →  divide by T  →  softmax  →  top-k / top-p  →  draw
+```
+
+Temperature must act on logits, not on probabilities. Applying it after softmax would do nothing at all: dividing every probability by the same constant and then renormalising returns the original distribution exactly.
+
+It works on logits because softmax is exponential. Scaling a logit by 1/T becomes an exponent change on the unnormalised weight:
+
+```
+softmax(z/T)ᵢ  ∝  e^(zᵢ/T)  =  (e^zᵢ)^(1/T)
+```
+
+Each unnormalised probability is raised to the power 1/T. At T = 0.5 that is squaring — large values grow much faster than small ones, so gaps widen. At T = 2 it is a square root, pulling everything closer together.
+
+Concretely, logits 3.0 and 1.0 differ by 2, a ratio of e² ≈ 7.4. At T = 0.5 they become 6.0 and 2.0, a difference of 4 and a ratio of e⁴ ≈ 54.6. Same underlying scores, ratio multiplied roughly sevenfold.
+
+Top-k and top-p sit on the other side of softmax. Both require actual probabilities to operate on — a count of the highest few, or a cumulative sum crossing a threshold — so they can only run once normalisation has happened. Temperature before, truncation after.
 
 ### Top-k
 
@@ -211,7 +233,7 @@ Production systems stack all four: constrain the shape, validate with code, use 
 
 The model is a stateless function producing a distribution over next tokens. It has no memory, no live data, and no ability to act — three gaps that are filled by external machinery. It also has no guarantee of correctness, which is not a gap but a property of what it was trained to do, and therefore reducible but never removable.
 
-Token selection is deterministic through logits and softmax, then reshaped by temperature, top-k, or top-p, then resolved by a weighted random draw — or by argmax, if you disable sampling.
+Token selection is deterministic throughout: logits are scaled by temperature, normalised by softmax, optionally truncated by top-k or top-p, and then resolved by a weighted random draw — or by argmax, if you disable sampling. Only that final draw is random.
 
 Constrained decoding is the only intervention that makes bad output impossible rather than detectable, because it acts on the distribution before the draw. Everything else in the verification stack is detection after the fact.
 
