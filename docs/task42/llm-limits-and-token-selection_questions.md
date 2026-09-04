@@ -3,15 +3,17 @@
 Answer on paper, using the reading page's ideas: a language model is a **pure
 function** from a sequence of tokens to a **probability distribution over the next
 token**; it has **no memory, no live data, and no ability to act**, and **no
-guarantee of correctness**; the pipeline is **deterministic through logits and
-softmax**, then **reshaped** by temperature / top-k / top-p, then resolved by a
-**single weighted random draw** (or argmax); and verification lives **before the
-draw** (constrained decoding) or **after the fact** (code, model review, human).
+guarantee of correctness**; the pipeline is **deterministic throughout** — logits,
+scaled by **temperature** *before* softmax, normalised by **softmax**, then
+optionally truncated by **top-k / top-p** *after* it — and only the final
+**weighted random draw** (or argmax) is random; and verification lives **before
+the draw** (constrained decoding) or **after the fact** (code, model review,
+human).
 
 Answers are **not** in this file.
 
-Parts C4–C6 need arithmetic. Keep `e = 2.71828` and these powers handy — you may
-round each probability to the nearest whole per cent:
+Parts C4–C6 and C9 need arithmetic. Keep `e = 2.71828` and these powers handy —
+you may round each probability to the nearest whole per cent:
 
 ```
 e^0.25 = 1.28    e^1.0 = 2.72    e^2.0 = 7.39
@@ -150,6 +152,29 @@ rather than merely detectable afterwards?
 - C) both structure and content
 - D) neither — grammars only speed up decoding
 
+**A18.** Where in the pipeline does **temperature** act?
+
+- A) on the probabilities, after softmax, alongside top-k and top-p
+- B) on the logits, before softmax
+- C) on the token ids, before the forward pass
+- D) on the token that was drawn, as a correction
+
+**A19.** Applying temperature *after* softmax instead of before would:
+
+- A) sharpen the distribution twice as hard
+- B) do nothing — dividing every probability by the same constant and then
+  renormalising returns the original distribution exactly
+- C) raise an error, because probabilities may not be divided
+- D) always flatten the distribution toward uniform
+
+**A20.** Top-k and top-p can only run *after* softmax because they:
+
+- A) need the logits to all be positive first
+- B) need actual probabilities — a count of the highest few, or a running sum that
+  crosses a threshold
+- C) are applied by the API rather than by the model
+- D) depend on the temperature value being known
+
 ---
 
 ## Part B — Fill in the Blanks
@@ -191,6 +216,13 @@ self-review (______________), and human review (______________).
 
 **B12.** Model self-review is weak at catching ______________ wrongness, because
 you are using the same ______________ that produced the error to judge it.
+
+**B13.** The full pipeline order is: logits → ______________ → softmax →
+______________ → draw.
+
+**B14.** Scaling a logit by `1/T` becomes an exponent change on the unnormalised
+weight: each weight is raised to the power ______________. At `T = 0.5` that is
+______________; at `T = 2` it is a ______________.
 
 ---
 
@@ -256,3 +288,14 @@ limit" in principle, even though the page says the substitution is sound.
 - (b) generating three different opening sentences for a blog post
 - (c) classifying a support ticket as `billing`, `bug` or `other`
 - (d) brainstorming names for a new product
+
+**C9.** Two tokens have logits `3.0` and `1.0`. Use `e^2.0 = 7.39` and
+`e^4.0 = 54.60`.
+
+- (a) Their logits differ by 2. What is the ratio of their *unnormalised* softmax
+  weights, `e^3.0 : e^1.0`?
+- (b) Apply `T = 0.5`. Write the two scaled logits, their new difference, and the
+  new ratio of unnormalised weights.
+- (c) The underlying scores never changed. In one sentence, say what temperature
+  did to the gap between these two tokens, and why top-k or top-p could not have
+  produced the same effect.
