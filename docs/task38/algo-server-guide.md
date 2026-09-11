@@ -17,7 +17,7 @@ uv is a fast tool for managing Python projects. It handles the Python version, t
 **On Omarchy**
 
 ```bash
-sudo pacman -S uv
+sudo pacman -Sy uv
 ```
 
 **On Ubuntu**
@@ -39,7 +39,7 @@ If it prints a version number, you're ready.
 ## Step 2: Create the project
 
 ```bash
-uv init algo-server
+uv init --no-package algo-server
 cd algo-server
 ```
 
