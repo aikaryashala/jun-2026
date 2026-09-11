@@ -120,4 +120,3 @@ You should see these responses:
 | Add a package | `uv add package` |
 | Remove a package | `uv remove package` |
 | Run a file | `uv run file.py` |
-| Rebuild the environment | `uv sync` |
