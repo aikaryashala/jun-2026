@@ -116,7 +116,7 @@ You should see these responses:
 
 | Task | Command |
 |---|---|
-| Create a project | `uv init name` |
+| Create a project | `uv init --no-package name` |
 | Add a package | `uv add package` |
 | Remove a package | `uv remove package` |
 | Run a file | `uv run file.py` |
