@@ -1,10 +1,137 @@
 # Changing a Page with JavaScript — Appending vs Replacing the Body
 
-**Goal.** A web page on your screen is not just a file. When the browser opens an HTML file, it builds a live copy of the page in memory, called the **DOM**, and JavaScript can change that copy while you watch. Today you will learn four ways to put new content into the page's `<body>`. Two of them **add** to what is already there and one **wipes it out first**. By the end you should be able to look at any of the four and say, before running it, what the page will look like afterwards.
+**Goal.** A web page on your screen is not just a file. When the browser opens an HTML file, it builds a live copy of the page in memory, called the **DOM**, and JavaScript can change that copy while you watch. Today you will learn four ways to put new content into the page's `<body>`. Three of them **add** to what is already there and one **wipes it out first**. By the end you should be able to look at any of the four and say, before running it, what the page will look like afterwards.
 
 **You need:** the **Ulaa** browser, a text editor (Notepad or VS Code), a notebook, and a pencil. No server and no terminal today. You open the HTML files directly in Ulaa.
 
-Read the guide below first. Then do the iterations, which make you run every snippet in the guide and look closely at what it does.
+Start with the big picture just below: where the DOM came from, and what the browser does with your HTML. Then read the guide, and then do the iterations, which make you run every snippet in the guide and look closely at what it does.
+
+---
+
+## The big picture — from HTML file to DOM tree
+
+### Where the word "DOM" comes from
+
+**1989 — documents for scientists.** At **CERN**, the physics laboratory in Geneva, thousands of researchers from many countries had to share papers, notes and results. These were spread over different computers that could not easily read each other's files. **Tim Berners-Lee**, who worked there, proposed a system of **linked documents**: any page could point to any other page, on any computer. By the end of 1990 he had written the first web server, the first browser, and a simple language for writing these documents: **HTML**, the *HyperText Markup Language*. "Hypertext" means text with links, and "markup" means tags like `<h1>` and `<p>` that mark which part of the text is a heading and which is a paragraph.
+
+So from the very start, a web page was a **document**: headings, paragraphs and links, much like a research paper.
+
+**1995 — pages that can change.** Netscape, the most popular browser of the time, added a small programming language that runs **inside the page**: **JavaScript**. Microsoft's Internet Explorer soon did the same. For a script to change a page, the page has to exist as something a program can reach: not as text, but as **objects** with properties (like `textContent`) and actions (like `appendChild`). Each browser invented its own way of doing this, so a script written for one browser often broke in the other.
+
+**1998 — one agreed model.** To end that mess, the **W3C** (the group that writes web standards) published the **Document Object Model, Level 1**: one agreed description of how a page is offered to programs. The name says exactly what it is:
+
+| Word | Meaning |
+|---|---|
+| **Document** | the page, which since 1989 has been a document |
+| **Object** | every part of it (the body, each heading, each paragraph) is an object a program can use |
+| **Model** | an agreed description of how those objects fit together, as a **tree** |
+
+**How HTML grew.** The first HTML (1991) had only about 18 tags, enough for headings, paragraphs, lists and links. The first official standard, HTML 2.0 (1995), included images and forms. Later versions added tables (HTML 3.2, 1997), and the separation of *structure* (HTML) from *style* (CSS) (HTML 4, 1997–1999). **HTML5** (2014) added tags for video, audio and drawing, and was designed for whole **applications** running in the browser, not just documents. Today HTML and the DOM are kept as **"living standards"** by the **WHATWG**, a group of browser makers, and are updated continuously instead of in numbered versions. Gmail, YouTube and every page you open in Ulaa are all still built on the same idea: a document, made of objects, arranged as a tree.
+
+### What Ulaa does with your file
+
+When you open an HTML file, Ulaa does not show the file directly. It goes through these steps:
+
+```
+  body_demo.html                      (text on your disk)
+        │
+        │  1. read the file, character by character
+        ▼
+  ┌──────────────┐
+  │    PARSER    │   finds the tags: <html> … <body> … <h1> … </h1> …
+  └──────────────┘
+        │
+        │  2. build a tree of objects in memory
+        ▼
+  ┌──────────────┐
+  │   DOM TREE   │◄──────────────────────┐
+  └──────────────┘                       │
+        │                                │  4. JavaScript changes
+        │  3. draw the tree on screen    │     the tree
+        ▼                                │     (the Console, or a <script>)
+  ┌──────────────┐                ┌──────────────┐
+  │  THE SCREEN  │                │  JavaScript  │
+  └──────────────┘                └──────────────┘
+        ▲                                │
+        └──── 5. the tree changed, so the screen is drawn again
+```
+
+- **Parsing** (1) happens **once**, when the page is opened, or again when you press **F5**.
+- After that, the **file is not used again**. What you see on screen is drawn from the **DOM tree** (3).
+- JavaScript never edits the file. It edits the **tree** (4), and the browser redraws the screen from the changed tree (5).
+
+This is the single most important picture of today. Every snippet in the guide is a way of changing the tree.
+
+### Example — parsing a small page into a tree
+
+Here is a short HTML file:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Colour Lab</title>
+</head>
+<body>
+  <h1>Light</h1>
+  <p>Screens <strong>add</strong> light.</p>
+  <p>Paint takes it away.</p>
+</body>
+</html>
+```
+
+The parser reads it from top to bottom. Every time a tag **opens inside** another tag, the new element becomes that tag's **child**. The text between tags becomes a **text node**. The result is this tree:
+
+```
+html
+├── head
+│   └── title
+│       └── "Colour Lab"
+└── body
+    ├── h1
+    │   └── "Light"
+    ├── p
+    │   ├── "Screens "
+    │   ├── strong
+    │   │   └── "add"
+    │   └── " light."
+    └── p
+        └── "Paint takes it away."
+```
+
+Read the tree with family words:
+
+- `html` is the **root**, the top of the tree. It has two **children**: `head` and `body`.
+- `body` is the **parent** of `h1`, `p` and `p`. Those three are **siblings**.
+- The first `p` has three children: the text `"Screens "`, the element `strong`, and the text `" light."`. The bold word is a **child of the paragraph**, because in the file `<strong>` opened inside `<p>`.
+- Only what is inside `body` is drawn on the page. `head` holds information *about* the page, such as the title shown on the browser tab.
+
+(The real tree also holds tiny text nodes made of just the spaces and new lines between tags. The Elements tab hides them, and so do we.)
+
+Now open the **Elements** tab on any page and you will recognise this tree, drawn the same way: each `▸` arrow opens a node to show its children, indented one step to the right.
+
+This also explains the difference between two words in the guide. `innerHTML` **runs the parser** on your string, so `"<strong>balanced.</strong>"` becomes a real `strong` node in the tree. `textContent` **does not parse**. It makes one plain text node, so the `<` and `>` stay as characters.
+
+### Why order matters — and what `appendChild` does
+
+The children of a node are kept **in order**: first child, second child, third child. The browser draws the body's children **in that order, from top to bottom**. So *where* a node sits in the list decides *where* it appears on the screen.
+
+`appendChild` means: **add this node as the last child**. Here is the tree of `body_demo.html` before and after Snippet 1:
+
+```
+  BEFORE                              AFTER  document.body.appendChild(name)
+
+  body                                body
+   ├── h1  "My Page"                   ├── h1  "My Page"
+   └── p   "This paragraph was…"       ├── p   "This paragraph was…"
+                                       └── p   "Pavan Lanka - …"   ◄── new last child
+```
+
+The new paragraph becomes the **last child** of `body`, so it is drawn **last**, at the bottom of the page. Nothing already in the tree is moved or removed.
+
+Compare `document.body.innerHTML = "…"`. That **cuts off every child** of `body`, then parses the new string and hangs the resulting nodes on `body` instead. The branches are new, while `body` itself stays.
+
+> **Hold this picture in your head:** HTML file → **parse** → **DOM tree** → screen. JavaScript changes the **tree**, and the screen follows. The tree keeps children **in order**, and `appendChild` always adds at the **end**.
 
 ---
 
@@ -514,6 +641,20 @@ Run it and describe what went wrong. Then fix it by changing **one word**.
 | English | తెలుగు | Meaning |
 |---|---|---|
 | DOM | డామ్ | బ్రౌజర్ మెమరీలో తయారుచేసే పేజీ యొక్క ప్రత్యక్ష కాపీ — JavaScript మార్చేది దీన్నే |
+| Document Object Model | డాక్యుమెంట్ ఆబ్జెక్ట్ మోడల్ | పేజీని (డాక్యుమెంట్) ఆబ్జెక్ట్‌ల చెట్టుగా చూపించే ఒప్పందం — DOM పూర్తి పేరు |
+| HTML (HyperText Markup Language) | హైపర్‌టెక్స్ట్ మార్కప్ లాంగ్వేజ్ | లింకులతో కూడిన పత్రాలను ట్యాగ్‌లతో రాసే భాష |
+| hypertext | హైపర్‌టెక్స్ట్ | లింకులు ఉన్న టెక్స్ట్ — ఒక పేజీ నుండి ఇంకో పేజీకి |
+| markup | మార్కప్ | టెక్స్ట్‌లో ఏది హెడ్డింగ్, ఏది పేరా అని గుర్తు పెట్టే ట్యాగ్‌లు |
+| parse / parser | విశ్లేషించడం / విశ్లేషకం | HTML టెక్స్ట్‌ను చదివి ట్యాగ్‌లను గుర్తించి చెట్టుగా మార్చడం |
+| tree | చెట్టు (వృక్ష నిర్మాణం) | పై నుండి కొమ్మలుగా విడిపోయే డేటా నిర్మాణం |
+| node | నోడ్ | చెట్టులో ఒక స్థానం — ఎలిమెంట్ లేదా టెక్స్ట్ |
+| text node | టెక్స్ట్ నోడ్ | ట్యాగ్‌ల మధ్య ఉన్న అక్షరాలు మాత్రమే ఉన్న నోడ్ |
+| root | మూలం | చెట్టు పైభాగం — `html` |
+| parent | తల్లిదండ్రి నోడ్ | ఒక నోడ్‌ను తన లోపల పెట్టుకున్న నోడ్ |
+| child | పిల్ల నోడ్ | ఇంకో నోడ్ లోపల ఉన్న నోడ్ — క్రమంలో ఉంటాయి |
+| sibling | తోబుట్టువు | ఒకే తల్లిదండ్రి కింద ఉన్న నోడ్‌లు |
+| render | చిత్రించడం | DOM చెట్టు నుండి స్క్రీన్‌పై పేజీని గీయడం |
+| standard | ప్రమాణం | అందరూ ఒకేలా పాటించే ఒప్పందం — W3C, WHATWG రాస్తాయి |
 | element | ఎలిమెంట్ | పేజీలో ఒక భాగం — `<p>`, `<h1>` లాంటివి |
 | tag | ట్యాగ్ | `<` `>` మధ్య రాసే పేరు — `<strong>` |
 | body | బాడీ | పేజీలో కనిపించే భాగమంతా ఉండే ఎలిమెంట్ |
