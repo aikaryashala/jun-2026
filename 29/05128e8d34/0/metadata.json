@@ -1,0 +1,174 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "2905128e8d34",
+  "session_id": "e28debf5-0fda-4735-9cd5-41a28dbb18fc",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-03T08:59:34.763696Z",
+  "branch": "main",
+  "checkpoints_count": 6,
+  "save_step_count": 5,
+  "files_touched": [
+    "docs/index.html",
+    "docs/tasks.html"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5-1",
+  "turn_id": "bc8609335827",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 114,
+    "cache_creation_tokens": 90493,
+    "cache_read_tokens": 5338188,
+    "output_tokens": 30198,
+    "api_call_count": 56
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-create-task-2026-09-29T10:50:13.142577Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "create-task"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "d6d3e00eb438",
+      "timestamp": "2026-09-29T10:50:13.142577Z",
+      "native": {
+        "command": "/create-task"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/create-task",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 6
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-03T08:59:34.721632Z",
+    "agent_lines": 13,
+    "agent_removed": 13,
+    "human_added": 872,
+    "human_modified": 7,
+    "human_removed": 0,
+    "total_committed": 892,
+    "total_lines_changed": 905,
+    "agent_percentage": 2.8729281767955803,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 2210,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "docs/task10/bitwise_operators_extra_answers.html": 36,
+        "docs/task10/bitwise_operators_extra_answers.md": 185,
+        "docs/task10/bitwise_operators_extra_questions.html": 36,
+        "docs/task10/bitwise_operators_extra_questions.md": 41,
+        "docs/task31/python_collections_extra_answers.html": 41,
+        "docs/task31/python_collections_extra_answers.md": 586,
+        "docs/task32/why_we_should_follow_type_hints_in_python_answers.html": 41,
+        "docs/task32/why_we_should_follow_type_hints_in_python_answers.md": 259,
+        "docs/task33/slicing_and_ranges_answers.html": 41,
+        "docs/task33/slicing_and_ranges_answers.md": 329,
+        "docs/task34/linters_and_type_checkers_answers.html": 41,
+        "docs/task34/linters_and_type_checkers_answers.md": 270,
+        "docs/task42/llm-limits-and-token-selection_answers.md": 304
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 4097,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2240,
+      "agent_lines_removed": 21,
+      "user_added_per_file": {
+        "docs/task39/apis_and_http_answers.html": 41,
+        "docs/task39/apis_and_http_answers.md": 202,
+        "docs/task39/apis_and_http_questions.html": 41,
+        "docs/task39/apis_and_http_questions.md": 220,
+        "docs/task39/apis_and_http_worksheet.html": 41,
+        "docs/task39/apis_and_http_worksheet.md": 905,
+        "docs/task40/api_authentication_answers.html": 41,
+        "docs/task40/api_authentication_answers.md": 203,
+        "docs/task40/api_authentication_questions.html": 41,
+        "docs/task40/api_authentication_questions.md": 207,
+        "docs/task40/api_authentication_worksheet.html": 41,
+        "docs/task40/api_authentication_worksheet.md": 792,
+        "docs/task41/rest_api_design_worksheet.md": 1322
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 2775,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2240,
+      "agent_lines_removed": 21,
+      "user_added_per_file": {
+        "docs/task39/apis_and_http_answers.html": 41,
+        "docs/task39/apis_and_http_answers.md": 202,
+        "docs/task39/apis_and_http_questions.html": 41,
+        "docs/task39/apis_and_http_questions.md": 220,
+        "docs/task39/apis_and_http_worksheet.html": 41,
+        "docs/task39/apis_and_http_worksheet.md": 905,
+        "docs/task40/api_authentication_answers.html": 41,
+        "docs/task40/api_authentication_answers.md": 203,
+        "docs/task40/api_authentication_questions.html": 41,
+        "docs/task40/api_authentication_questions.md": 207,
+        "docs/task40/api_authentication_worksheet.html": 41,
+        "docs/task40/api_authentication_worksheet.md": 792
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 2775,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2240,
+      "agent_lines_removed": 21,
+      "user_added_per_file": {
+        "docs/task39/apis_and_http_answers.html": 41,
+        "docs/task39/apis_and_http_answers.md": 202,
+        "docs/task39/apis_and_http_questions.html": 41,
+        "docs/task39/apis_and_http_questions.md": 220,
+        "docs/task39/apis_and_http_worksheet.html": 41,
+        "docs/task39/apis_and_http_worksheet.md": 905,
+        "docs/task40/api_authentication_answers.html": 41,
+        "docs/task40/api_authentication_answers.md": 203,
+        "docs/task40/api_authentication_questions.html": 41,
+        "docs/task40/api_authentication_questions.md": 207,
+        "docs/task40/api_authentication_worksheet.html": 41,
+        "docs/task40/api_authentication_worksheet.md": 792
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 2775,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2240,
+      "agent_lines_removed": 21,
+      "user_added_per_file": {
+        "docs/task39/apis_and_http_answers.html": 41,
+        "docs/task39/apis_and_http_answers.md": 202,
+        "docs/task39/apis_and_http_questions.html": 41,
+        "docs/task39/apis_and_http_questions.md": 220,
+        "docs/task39/apis_and_http_worksheet.html": 41,
+        "docs/task39/apis_and_http_worksheet.md": 905,
+        "docs/task40/api_authentication_answers.html": 41,
+        "docs/task40/api_authentication_answers.md": 203,
+        "docs/task40/api_authentication_questions.html": 41,
+        "docs/task40/api_authentication_questions.md": 207,
+        "docs/task40/api_authentication_worksheet.html": 41,
+        "docs/task40/api_authentication_worksheet.md": 792
+      }
+    }
+  ]
+}
