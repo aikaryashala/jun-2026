@@ -1,0 +1,29 @@
+/create-task create multiple tasks with worksheets, questions and answers with the content in https://zapier.com/blog/api/ use Chrome Browser plugin if needed to read the page.
+
+---
+
+use 39, 40, 41, 43 — go ahead and create them Remove the now block. ultracode.
+
+---
+
+continue, reload the settings
+
+---
+
+create task one by one
+
+---
+
+ok
+
+---
+
+no need to ask me proceed
+
+---
+
+don't ask m permissions, go ahead
+
+---
+
+don't ask permissins

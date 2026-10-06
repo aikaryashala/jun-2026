@@ -3,7 +3,7 @@
   "checkpoint_id": "96c03ddd1bc7",
   "strategy": "manual-commit",
   "branch": "main",
-  "checkpoints_count": 3,
+  "checkpoints_count": 9,
   "files_touched": [
     "CLAUDE.md",
     "docs/assets/site.css",
@@ -18,13 +18,20 @@
       "compact_transcript": "/96/c03ddd1bc7/0/transcript.jsonl",
       "content_hash": "/96/c03ddd1bc7/0/content_hash.txt",
       "prompt": "/96/c03ddd1bc7/0/prompt.txt"
+    },
+    {
+      "metadata": "/96/c03ddd1bc7/1/metadata.json",
+      "transcript": "/96/c03ddd1bc7/1/full.jsonl",
+      "compact_transcript": "/96/c03ddd1bc7/1/transcript.jsonl",
+      "content_hash": "/96/c03ddd1bc7/1/content_hash.txt",
+      "prompt": "/96/c03ddd1bc7/1/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 34,
-    "cache_creation_tokens": 44481,
-    "cache_read_tokens": 969811,
-    "output_tokens": 8062,
-    "api_call_count": 17
+    "input_tokens": 148,
+    "cache_creation_tokens": 134974,
+    "cache_read_tokens": 6307999,
+    "output_tokens": 38260,
+    "api_call_count": 73
   }
 }
