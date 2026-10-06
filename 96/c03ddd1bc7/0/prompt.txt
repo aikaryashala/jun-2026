@@ -1,0 +1,9 @@
+https://aikaryashala.com/pusthakam/thinkos/chap01/think_os_ch01_compilation.html Add task45 which will redirect to the link and update @docs/index.html page
+
+---
+
+add this task45 into separate category 'Think OS' in @docs/index.html and @docs/tasks.html
+
+---
+
+The tasks are not ordered well. Keep them in task number order and add the category as a sub-title to the task.
