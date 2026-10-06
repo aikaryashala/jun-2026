@@ -35,7 +35,24 @@ Current tasks: 3 (paths), 4 (compilation intermediate files), 5 (Linux commands)
 30 (Python `input()` and types), 31 (Python collections & `for … in`),
 32 (why we follow type hints), 33 (slicing & ranges),
 35 (bits-to-internet reference), 36 (signed bytes, two's complement & gates),
-37 (networking & routing).
+37 (networking & routing), 38 (Bottle algo web server, reference),
+39 (APIs & HTTP), 40 (API authentication), 41 (REST API design), 42 (LLM limits),
+43 (JavaScript DOM — appending vs replacing `<body>`),
+44 (JavaScript colours — hex `#RRGGBB` to 24-bit RGB),
+45 (Think OS ch. 1, compilation — a redirect page only, to
+`aikaryashala.com/pusthakam/thinkos/chap01/...`; listed as `reference`). Tasks 39–41 form an API series
+built from Zapier's "An Introduction to APIs", all extending task 38's Bottle server with
+curl as the client.
+
+Task **43** is run with no server: students open the HTML files directly (`file:///`)
+in the **Ulaa** browser (Chromium-based) and paste snippets into the DevTools Console.
+Its scope is deliberately just the four ways in its opening guide (`createElement` +
+`appendChild` with `textContent` / `innerHTML`, `innerHTML =`, `innerHTML +=`), plus
+the browser's auto-built html/head/body skeleton (empty file, content-only file).
+Task **44** runs the same way (Ulaa, Console, content-only files) and adds iterations
+beyond its guide to block colour misconceptions: additive light mixing, brightness/grey,
+short hex forms (3 digits doubled, 4th = transparency, 2/5 ignored), `toString(16)`,
+`padStart`, and why a `load` listener typed into the Console never fires.
 
 Planned next in the Python strand: **strings** (methods and formatting) and **JSON**
 (general use across systems, then how Python handles it) — numbers to be decided when
@@ -144,28 +161,37 @@ Three hand-written pages — not viewers — sharing `assets/site.css`, which re
 same tokens as `viewer.css` so the front door looks like the worksheets:
 
 - **`index.html`** — the batch landing page served at the site root. Hero (batch label,
-  student/team/worksheet counts), a **"Now on"** banner naming the task the batch is
-  currently working through, a **learning path** of topic chips linking to `tasks.html`
-  anchors, and three hub cards. Two things go stale and are marked with comments in the
-  file: the `BRANDING` lines and the `WHERE WE ARE NOW` block — update the "Now on"
-  link whenever the batch moves to a new task.
+  student/team/worksheet counts; the "Now on" banner was removed 2026-09-29), a
+  **learning path** of topic chips linking to `tasks.html`
+  anchors, and three hub cards. The `BRANDING` lines (marked with a comment) and the
+  worksheet count in `.facts` go stale — keep the count equal to the `<li>`s in
+  `tasks.html`.
 - **`tasks.html`** — the worksheet index (this was the old `index.html`; renamed
-  2026-08-06 so the root could become the batch page). Tasks are grouped into seven
-  `.group` blocks with stable anchor ids the path chips link to: `#linux`, `#c`,
-  `#memory`, `#debug`, `#tools`, `#network`, `#python`. (`#network` was added
-  2026-08-14 for task 37; the `.facts` "Topics" count in `index.html` must match the
-  number of groups.)
+  2026-08-06 so the root could become the batch page). Since 2026-10-06 it is a
+  **single list in task-number order** (not grouped); each task shows its topic as a
+  `.cat` subtitle under the title. There are eleven topics, each with a stable anchor
+  id that the `index.html` path chips link to: `#linux`, `#c`, `#thinkos`, `#memory`,
+  `#debug`, `#tools`, `#network`, `#python`, `#web`, `#frontend`, `#ai`. The id sits on
+  the `<li>` of the **lowest-numbered** task in that topic, so a chip jumps to where
+  the topic starts. The `.facts` "Topics" count in `index.html` must match the number
+  of topics.
 - **`june_overview_slides/index.html`** — the team decks.
 
-One `<li>` per task inside the right group's `.tasklist`. The task number lives in its
-own `.num` span, so the link text is the title alone (no "Task N -" prefix):
+One `<li>` per task, inserted at its place in number order. The task number lives in
+its own `.num` span, so the link text is the title alone (no "Task N -" prefix); the
+title and its topic subtitle are wrapped together in `.entry`:
 
 ```html
 <li><span class="num">Task N</span>
-    <a class="title" href="taskN/<base>.html"><Title></a>
+    <span class="entry"><a class="title" href="taskN/<base>.html"><Title></a>
+      <span class="cat"><Topic name></span></span>
     <a class="q" href="taskN/<base>_questions.html">Questions</a>
     <a class="q" href="taskN/<base>_answers.html">ans</a></li>
 ```
+
+If the new task is now the lowest-numbered one in its topic, move that topic's `id`
+onto it. A brand-new topic needs a new `id`, a new path chip in `index.html`, and a
+bump to the Topics count.
 
 For a worksheet-only or reference task, replace the two `.q` links with
 `<span class="only">worksheet only</span>` (or `reference`).
@@ -187,10 +213,9 @@ python3 -m http.server 8000
    re-verify all facts/arithmetic by hand.
 3. Copy one slim viewer HTML per file; update title, body class, brand, chips,
    status text. Keep `.html` and `.md` basenames identical.
-4. Add the task's `<li>` to the right topic group in `docs/tasks.html`, and update the
+4. Add the task's `<li>` in number order in `docs/tasks.html` with its topic subtitle, and update the
    group's task-number list in the `docs/index.html` path chip (e.g. `tasks 3, 5, 7`).
-   If this is the task the batch now moves to, update the "Now on" block in
-   `docs/index.html` too.
+   Bump the worksheet count in `.facts`.
 5. Serve `docs/` and click all three links; confirm each renders and the browser-tab
    title matches the md's `# Title`.
 

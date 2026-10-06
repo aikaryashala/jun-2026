@@ -225,6 +225,17 @@ main{padding:clamp(20px,4vw,52px) 16px 96px;}
   padding:9px 18px; border-top:1px solid var(--rule);
 }
 .tasklist li:hover{background:#FAFBFD;}
+.tasklist li:first-child{border-top:0;}
+.tasklist li[id]{scroll-margin-top:72px;}
+.tasklist li:target{background:var(--accent-soft);}
+.entry{
+  display:flex; flex-direction:column; gap:2px;
+  flex:1 1 16em; min-width:0;
+}
+.tasklist .entry .title{margin-right:0; align-self:flex-start;}
+.cat{
+  font-family:var(--mono); font-size:.72rem; color:var(--muted);
+}
 .num{
   font-family:var(--mono); font-size:.76rem; color:var(--muted);
   min-width:4.2em; flex:none;
