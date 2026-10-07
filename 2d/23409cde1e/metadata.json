@@ -1,0 +1,34 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "2d23409cde1e",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 6,
+  "files_touched": [
+    "CLAUDE.md",
+    "docs/index.html",
+    "docs/task47/ai_code_gen_cli_html_parser_assignment.html",
+    "docs/task47/ai_code_gen_cli_html_parser_assignment.md",
+    "docs/task47/ai_code_gen_cli_html_parser_questions.html",
+    "docs/task47/ai_code_gen_cli_html_parser_questions.md",
+    "docs/task47/ai_code_gen_cli_html_parser_quiz.html",
+    "docs/task47/ai_code_gen_cli_html_parser_quiz.md",
+    "docs/tasks.html"
+  ],
+  "sessions": [
+    {
+      "metadata": "/2d/23409cde1e/0/metadata.json",
+      "transcript": "/2d/23409cde1e/0/full.jsonl",
+      "compact_transcript": "/2d/23409cde1e/0/transcript.jsonl",
+      "content_hash": "/2d/23409cde1e/0/content_hash.txt",
+      "prompt": "/2d/23409cde1e/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 50,
+    "cache_creation_tokens": 112818,
+    "cache_read_tokens": 2719360,
+    "output_tokens": 36053,
+    "api_call_count": 24
+  }
+}
