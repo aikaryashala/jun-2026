@@ -39,8 +39,8 @@ Current tasks: 3 (paths), 4 (compilation intermediate files), 5 (Linux commands)
 39 (APIs & HTTP), 40 (API authentication), 41 (REST API design), 42 (LLM limits),
 43 (JavaScript DOM — appending vs replacing `<body>`),
 44 (JavaScript colours — hex `#RRGGBB` to 24-bit RGB),
-45 (Think OS ch. 1, compilation — a redirect page only, to
-`aikaryashala.com/pusthakam/thinkos/chap01/...`; listed as `reference`). Tasks 39–41 form an API series
+45 (Think OS ch. 1, compilation), 46 (Think OS ch. 2, processes) — each a redirect
+page only, to `aikaryashala.com/pusthakam/thinkos/chapNN/...`; listed as `reference`. Tasks 39–41 form an API series
 built from Zapier's "An Introduction to APIs", all extending task 38's Bottle server with
 curl as the client.
 
