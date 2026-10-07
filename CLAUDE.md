@@ -40,9 +40,23 @@ Current tasks: 3 (paths), 4 (compilation intermediate files), 5 (Linux commands)
 43 (JavaScript DOM — appending vs replacing `<body>`),
 44 (JavaScript colours — hex `#RRGGBB` to 24-bit RGB),
 45 (Think OS ch. 1, compilation), 46 (Think OS ch. 2, processes) — each a redirect
-page only, to `aikaryashala.com/pusthakam/thinkos/chapNN/...`; listed as `reference`. Tasks 39–41 form an API series
+page only, to `aikaryashala.com/pusthakam/thinkos/chapNN/...`; listed as `reference`.
+47 (Mini HTML parser — AI-assisted development with OpenCode + Entire + GitHub). Tasks 39–41 form an API series
 built from Zapier's "An Introduction to APIs", all extending task 38's Bottle server with
 curl as the client.
+
+Task **47** is an **assignment**, not a worksheet: students build the same CLI HTML→DOM
+tree printer twice (C, then Python) in two separate repos, using OpenCode as the agent,
+Entire to capture session context, and GitHub. Its main file is `<base>_assignment.md`
+(`<body class="worksheet">`), organised as phases 0–8 (each ending "Say it out loud"),
+with exact output/error rules, sample files and expected outputs (all generated from a
+private reference parser — never ship solution code), a 100-mark rubric (70
+engineering / 30 process), and New Words last. **No setup commands** — Phase 0 only
+points to the OpenCode and Entire docs. Its other two files differ from the usual bank:
+`_questions.md` holds only open reflection + Final-README questions for the notebook
+(no answer key exists — answers are subjective), and `_quiz.md` is a short basics quiz
+with each answer inline in a `<details><summary>Show answer</summary>` fold. The quiz
+is a separate file precisely so `_questions.md` never contains answers.
 
 Task **43** is run with no server: students open the HTML files directly (`file:///`)
 in the **Ulaa** browser (Chromium-based) and paste snippets into the DevTools Console.
@@ -169,9 +183,9 @@ same tokens as `viewer.css` so the front door looks like the worksheets:
 - **`tasks.html`** — the worksheet index (this was the old `index.html`; renamed
   2026-08-06 so the root could become the batch page). Since 2026-10-06 it is a
   **single list in task-number order** (not grouped); each task shows its topic as a
-  `.cat` subtitle under the title. There are eleven topics, each with a stable anchor
+  `.cat` subtitle under the title. There are twelve topics, each with a stable anchor
   id that the `index.html` path chips link to: `#linux`, `#c`, `#thinkos`, `#memory`,
-  `#debug`, `#tools`, `#network`, `#python`, `#web`, `#frontend`, `#ai`. The id sits on
+  `#debug`, `#tools`, `#network`, `#python`, `#web`, `#frontend`, `#ai`, `#aidev`. The id sits on
   the `<li>` of the **lowest-numbered** task in that topic, so a chip jumps to where
   the topic starts. The `.facts` "Topics" count in `index.html` must match the number
   of topics.
